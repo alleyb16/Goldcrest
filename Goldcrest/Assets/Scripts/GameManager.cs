@@ -33,16 +33,20 @@ public class GameManager : MonoBehaviour
     public int level1Score;
 
     // Player stats
-
-    public int playerHealth;
-    public int weaponDamage;
-    public int weaponRange;
+    // weapon stats
+    public int weaponDamage = 20;
+    public float weaponRange = 1f;
     public float attackCooldown;
+    public float weaponKnockback;
+
+    // armor stats
+    public int playerHealth;
     public float moveSpeed = 5f;
     public int dodgeForce = 1000;
 
-    //Movement
+    //Animations
     public bool isMoving = false;
+    public bool Attacking = false;
     //public bool isDodging = false;
 
 

@@ -24,6 +24,11 @@ public class CharacterAnim : MonoBehaviour
         {
             anim.SetBool("isMoving", false);
         }
+
+        if (GameManager.Instance.Attacking)
+        {
+            anim.SetBool("Attack", true);
+        }
     
     }
 }

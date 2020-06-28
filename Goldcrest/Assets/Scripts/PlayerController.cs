@@ -7,6 +7,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+    public PlayerCombat playercombat;
+
     private Vector2 beginTouchPosition, endTouchPosition;
     private int dodgeTime = 250; //TIMER MUST BE LESS THAN THIS TO DODGE
     private int tapTime = 125; // TIMER MUST BE LESS THAN THIS TO TAP
@@ -15,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 moveDirection;
     private Vector3 rotateDir;
 
-    Stopwatch timer = new Stopwatch(); // Our stopwatch used for detecting duration of each touch
+    Stopwatch timer = new Stopwatch(); // Our stopwatch used for detecting duration of each touch, used for to determine swipe, tap and drag
 
     public Camera cam;
 
@@ -39,8 +41,7 @@ public class PlayerController : MonoBehaviour
             {
                 case TouchPhase.Began: // RUNS WHEN FINGER IS PRESSED
                     beginTouchPosition = touch.position;
-                    //START TIMER
-                    timer.Start();
+                    timer.Start();//START TIMER
 
                     break;
 
@@ -61,8 +62,8 @@ public class PlayerController : MonoBehaviour
                     if (beginTouchPosition == endTouchPosition && fingerDownTime < tapTime)
                     {
                         //attack
-
-                        print("TAP");
+                        playercombat.Attack();
+                        //print("TAP");
                         timer.Reset();
                     }
                         
@@ -114,6 +115,7 @@ public class PlayerController : MonoBehaviour
                 float dist;
                 if(plane.Raycast (ray, out dist))
                 {
+                    //POSSIBLY MOVE PLAYER SLOWER WHEN FINGER IS PRESSED NEARBY
                     //if ()
                     // {
                     //     GameManager.Instance.moveSpeed = 2f;
