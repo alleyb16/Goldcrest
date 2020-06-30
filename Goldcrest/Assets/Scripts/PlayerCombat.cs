@@ -9,6 +9,8 @@ public class PlayerCombat : MonoBehaviour
     private float attackRange;
     public LayerMask enemyLayers;
 
+    Vector3 hitDirection = new Vector3();
+
     void Start()
     {
         attackRange = GameManager.Instance.weaponRange;
@@ -28,7 +30,7 @@ public class PlayerCombat : MonoBehaviour
 
         // Detect enemies in range
         Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayers);
-        print(hitEnemies);
+        //print(hitEnemies);
 
         // Damage enemies
         foreach (Collider enemy in hitEnemies)
@@ -38,13 +40,17 @@ public class PlayerCombat : MonoBehaviour
             enemy.GetComponent<BasicEnemy>().TakeDamage(GameManager.Instance.weaponDamage);
 
             // ADD KNOCKBACK
+            hitDirection = enemy.transform.position - GameObject.FindWithTag("Player").transform.position; // Calculates angle between player and enemy
+            enemy.GetComponent<Rigidbody>().AddForce(hitDirection.normalized * GameManager.Instance.weaponKnockback, ForceMode.Impulse); // Knocks enemy away is specified direction
         }
     }
 
+    // Displays targeted area of effect
     void OnDrawGizmosSelected()
     {
         if (attackPoint == null)
             return;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
+
 }

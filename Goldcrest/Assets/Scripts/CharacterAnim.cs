@@ -24,10 +24,17 @@ public class CharacterAnim : MonoBehaviour
         {
             anim.SetBool("isMoving", false);
         }
-
-        if (GameManager.Instance.Attacking)
+        // Manages the attacking animation
+        if (GameManager.Instance.isAttacking)
         {
-            anim.SetBool("Attack", true);
+            anim.Play("Attack"); // anim.Play runs the animation once
+            GameManager.Instance.isAttacking = false;
+        }
+        // Manages the dodging animation
+        if (GameManager.Instance.isDodging)
+        {
+            anim.Play("Roll");
+            GameManager.Instance.isDodging = false;
         }
     
     }

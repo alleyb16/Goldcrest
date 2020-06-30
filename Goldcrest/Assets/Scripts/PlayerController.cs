@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour
 
     public Camera cam;
 
+    public GameObject rapier;
+    public GameObject sword;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +35,21 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
+        if (Input.GetKey(KeyCode.R))
+        {
+            if (rapier.activeSelf)
+            {
+                sword.SetActive(true);
+                rapier.SetActive(false);
+                
+            }
+            if(sword.activeSelf)
+            {
+                rapier.SetActive(true);
+                sword.SetActive(false);
+                
+            }
+        }
 
         if (Input.touchCount > 0) // Detects when screen is touched
         {
@@ -62,7 +80,11 @@ public class PlayerController : MonoBehaviour
                     if (beginTouchPosition == endTouchPosition && fingerDownTime < tapTime)
                     {
                         //attack
-                        playercombat.Attack();
+                        if (GameManager.Instance.isAttacking == false)
+                        {
+                            playercombat.Attack();
+                            GameManager.Instance.isAttacking = true;
+                        }
                         //print("TAP");
                         timer.Reset();
                     }
@@ -70,14 +92,17 @@ public class PlayerController : MonoBehaviour
                     // DETECTS IF INPUT WAS A SWIPE
                     else if (beginTouchPosition != endTouchPosition && fingerDownTime < dodgeTime)
                     {
-                        //roll NEEDS WORK! ADD CAP TO DODGE SPEED
+                        if (GameManager.Instance.isDodging == false)
+                        {
+                            //roll NEEDS WORK! ADD CAP TO DODGE SPEED
 
-                        //converts 2D touch input to 3D direction and launches player
-                        touchDistance.z = touchDistance.y;
-                        touchDistance.y = 0;
-                        GetComponent<Rigidbody>().AddForce(touchDistance / fingerDownTime * GameManager.Instance.dodgeForce);
+                            //converts 2D touch input to 3D direction and launches player
+                            touchDistance.z = touchDistance.y;
+                            touchDistance.y = 0;
+                            GetComponent<Rigidbody>().AddForce(touchDistance / fingerDownTime * GameManager.Instance.dodgeForce);
 
-                        transform.LookAt(touchDistance / fingerDownTime); // ROTATE PLAYER TOWARDS ROLL DIRECTION (Doesn't always work)
+                            GameManager.Instance.isDodging = true;
+                        }
 
                         print("SWIPE");
                         timer.Reset();
