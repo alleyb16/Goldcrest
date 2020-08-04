@@ -1,28 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BasicEnemy : MonoBehaviour
 {
 
-    public int maxHealth = 100;
-    int currentHealth;
+    public float maxHealth = 100f;
+    private float currentHealth;
+
+    public Image enemyHealthbar;
+    private float healthPercent;
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+        //enemyHealthbar = GameObject.Find("enemyHealth").GetComponent<Image>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+       // updateHealth();
+       // print(enemyHealthbar.fillAmount);
     }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        enemyHealthbar.fillAmount = currentHealth / maxHealth;
 
         // play animation
 
@@ -32,6 +39,12 @@ public class BasicEnemy : MonoBehaviour
         }
     }
 
+    void updateHealth()
+    {
+        //healthPercent = currentHealth / maxHealth;
+       // enemyHealthbar.fillAmount = healthPercent;
+    }
+
     void Die()
     {
         // Die animation
@@ -39,8 +52,9 @@ public class BasicEnemy : MonoBehaviour
         // Disable Enemy
 
         print("Enemy Defeated");
+        GameManager.Instance.currentScore += 15;
         GetComponent<CapsuleCollider>().enabled = false;
         //this.enabled = false;
-        Destroy(gameObject, 3);
+        Destroy(gameObject, 1);
     }
 }

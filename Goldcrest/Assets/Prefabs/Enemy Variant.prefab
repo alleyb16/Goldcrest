@@ -88,7 +88,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 111886, guid: 10b8f8b81a78d2b488d260466a8883d3, type: 3}
       propertyPath: m_Name
-      value: Enemy
+      value: Enemy Variant
       objectReference: {fileID: 0}
     - target: {fileID: 111886, guid: 10b8f8b81a78d2b488d260466a8883d3, type: 3}
       propertyPath: m_Layer

@@ -14,7 +14,7 @@ public class Level1Script : MonoBehaviour
     //private int coins = 0;
    // private int score = 0;
     private float levelTimer = 300f;
-    private int timeRemaining;
+    public int timeRemaining;
 
     private float parScore = 500f;
     private float completionPercent;
@@ -27,6 +27,7 @@ public class Level1Script : MonoBehaviour
         // Resets level stats on beginning new level
         GameManager.Instance.coinsCollected = 0;
         GameManager.Instance.currentScore = 0;
+        GameManager.Instance.playerHealth = GameManager.Instance.playerMaxHealth;
     }
 
     // Update is called once per frame
@@ -41,11 +42,11 @@ public class Level1Script : MonoBehaviour
 
     private void OnGUI() // Displays useful info
     {
-        GUI.Label(new Rect(10, 40, 200, 20), "Time Remaining : " + timeRemaining);
-        GUI.Label(new Rect(10, 20, 200, 20), "Gold Collected: " + GameManager.Instance.coinsCollected);
-        GUI.Label(new Rect(10, 50, 200, 20), "Score : " + GameManager.Instance.currentScore);
-        GUI.Label(new Rect(10, 60, 200, 20), "High Score : " + GameManager.Instance.level1Score);
-        GUI.Label(new Rect(10, 70, 200, 20), "Percent Complete : " + completionPercent);
+        //GUI.Label(new Rect(10, 40, 200, 20), "Time Remaining : " + timeRemaining);
+        //GUI.Label(new Rect(10, 20, 200, 20), "Gold Collected: " + GameManager.Instance.coinsCollected);
+        //GUI.Label(new Rect(10, 50, 200, 20), "Score : " + GameManager.Instance.currentScore);
+        //GUI.Label(new Rect(10, 60, 200, 20), "High Score : " + GameManager.Instance.level1Score);
+        //GUI.Label(new Rect(10, 70, 200, 20), "Percent Complete : " + completionPercent);
     }
 
     private void OnTriggerEnter(Collider other) //When player collides with the level trigger box...

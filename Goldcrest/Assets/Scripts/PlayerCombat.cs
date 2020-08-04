@@ -35,13 +35,26 @@ public class PlayerCombat : MonoBehaviour
         // Damage enemies
         foreach (Collider enemy in hitEnemies)
         {
-            //apply damage
-            print("hit " + enemy.name);
-            enemy.GetComponent<BasicEnemy>().TakeDamage(GameManager.Instance.weaponDamage);
 
-            // ADD KNOCKBACK
-            hitDirection = enemy.transform.position - GameObject.FindWithTag("Player").transform.position; // Calculates angle between player and enemy
-            enemy.GetComponent<Rigidbody>().AddForce(hitDirection.normalized * GameManager.Instance.weaponKnockback, ForceMode.Impulse); // Knocks enemy away is specified direction
+            if (enemy.tag == "Door")
+            {
+                print("hitting Door");
+                enemy.GetComponent<BasicEnemy>().TakeDamage(GameManager.Instance.weaponDamage);
+                //enemy.GetComponent<Rigidbody>().AddForce(hitDirection.normalized * GameManager.Instance.weaponKnockback); // Knocks enemy away is specified direction
+            }
+            else
+            {
+                //apply damage
+                print("hit " + enemy.name);
+                enemy.GetComponent<BasicEnemy>().TakeDamage(GameManager.Instance.weaponDamage);
+
+                //apply damage to doors
+
+                // ADD KNOCKBACK
+                hitDirection = enemy.transform.position - GameObject.FindWithTag("Player").transform.position; // Calculates angle between player and enemy
+                enemy.GetComponent<Rigidbody>().AddForce(hitDirection.normalized * GameManager.Instance.weaponKnockback, ForceMode.Impulse); // Knocks enemy away is specified direction
+
+            }
         }
     }
 
@@ -52,5 +65,20 @@ public class PlayerCombat : MonoBehaviour
             return;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
+
+
+    //ADDS KNOCKBACK TO PLAYER
+   /* public IEnumerator Knockback(float knockDur, float knockPower, Vector3 knockDir)
+    {
+        float timer = 0;
+
+        while(knockDur > timer)
+        {
+            timer += Time.deltaTime;
+            rb.AddForce(new Vector3(knockDir.x * -100, knockDir.z * -100, knockDir.y * knockPower, transform.position.z));
+        }
+        yield return 0;
+    }
+    */
 
 }

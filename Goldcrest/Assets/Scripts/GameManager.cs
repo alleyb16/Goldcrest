@@ -37,12 +37,13 @@ public class GameManager : MonoBehaviour
     public int weaponDamage = 20;
     public float weaponRange = 1f;
     public float attackCooldown;
-    public float weaponKnockback = 50f;
+    public float weaponKnockback = 20f;
 
     // armor stats
-    public int playerHealth;
+    public float playerMaxHealth = 100f;
+    public float playerHealth = 100f;
     public float moveSpeed = 5f;
-    public int dodgeForce = 1000;
+    public int dodgeForce = 500;
 
     //Animation states
     public bool isMoving = false;

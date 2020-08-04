@@ -94,6 +94,8 @@ public class PlayerController : MonoBehaviour
                     {
                         if (GameManager.Instance.isDodging == false)
                         {
+
+                            GetComponent<Rigidbody>().drag = 1;
                             //roll NEEDS WORK! ADD CAP TO DODGE SPEED
 
                             //converts 2D touch input to 3D direction and launches player
@@ -102,6 +104,8 @@ public class PlayerController : MonoBehaviour
                             GetComponent<Rigidbody>().AddForce(touchDistance / fingerDownTime * GameManager.Instance.dodgeForce);
 
                             GameManager.Instance.isDodging = true;
+
+
                         }
 
                         print("SWIPE");
@@ -145,8 +149,9 @@ public class PlayerController : MonoBehaviour
                     // {
                     //     GameManager.Instance.moveSpeed = 2f;
                     // }
-                    
-                transform.position = Vector3.MoveTowards(transform.position, ray.GetPoint(dist), Time.deltaTime * GameManager.Instance.moveSpeed);
+
+                    //rb.position = Vector3.MoveTowards(transform.position, ray.GetPoint(dist), Time.deltaTime * GameManager.Instance.moveSpeed);
+                    transform.position = Vector3.MoveTowards(transform.position, ray.GetPoint(dist), Time.deltaTime * GameManager.Instance.moveSpeed);
                     GameManager.Instance.isMoving = true;
 
                     transform.LookAt(ray.GetPoint(dist)); // ROTATE PLAYER TOWARDS MOVEMENT DIRECTION
@@ -157,6 +162,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnGUI()
     {
-        GUI.Label(new Rect(10, 10, 200, 20), "Gold Stored : " + GameManager.Instance.totalCoins);
+        //GUI.Label(new Rect(10, 10, 200, 20), "Gold Stored : " + GameManager.Instance.totalCoins);
     }
 }
