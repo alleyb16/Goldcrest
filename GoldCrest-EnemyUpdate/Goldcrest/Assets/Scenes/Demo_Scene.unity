@@ -3748,6 +3748,7 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 512
+<<<<<<< Updated upstream:GoldCrest-EnemyUpdate/Goldcrest/Assets/Scenes/Demo_Scene.unity
 --- !u!195 &95960977
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3770,6 +3771,8 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+=======
+>>>>>>> Stashed changes:Goldcrest/Assets/Scenes/Demo_Scene.unity
 --- !u!1001 &97250134
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11146,7 +11149,10 @@ GameObject:
   - component: {fileID: 248799768}
   - component: {fileID: 248799767}
   - component: {fileID: 248799769}
+<<<<<<< Updated upstream:GoldCrest-EnemyUpdate/Goldcrest/Assets/Scenes/Demo_Scene.unity
   - component: {fileID: 248799770}
+=======
+>>>>>>> Stashed changes:Goldcrest/Assets/Scenes/Demo_Scene.unity
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -11193,6 +11199,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream:GoldCrest-EnemyUpdate/Goldcrest/Assets/Scenes/Demo_Scene.unity
 --- !u!114 &248799770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11206,6 +11213,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 95960970}
+=======
+>>>>>>> Stashed changes:Goldcrest/Assets/Scenes/Demo_Scene.unity
 --- !u!1001 &250510413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35158,7 +35167,11 @@ PrefabInstance:
     - target: {fileID: 600744629834685196, guid: 23456ebfbaba7ad468003986bcc4a27f,
         type: 3}
       propertyPath: m_LocalPosition.x
+<<<<<<< Updated upstream:GoldCrest-EnemyUpdate/Goldcrest/Assets/Scenes/Demo_Scene.unity
       value: 6.88
+=======
+      value: 7.933446
+>>>>>>> Stashed changes:Goldcrest/Assets/Scenes/Demo_Scene.unity
       objectReference: {fileID: 0}
     - target: {fileID: 600744629834685196, guid: 23456ebfbaba7ad468003986bcc4a27f,
         type: 3}
@@ -35168,7 +35181,11 @@ PrefabInstance:
     - target: {fileID: 600744629834685196, guid: 23456ebfbaba7ad468003986bcc4a27f,
         type: 3}
       propertyPath: m_LocalPosition.z
+<<<<<<< Updated upstream:GoldCrest-EnemyUpdate/Goldcrest/Assets/Scenes/Demo_Scene.unity
       value: 18.35
+=======
+      value: 28.962708
+>>>>>>> Stashed changes:Goldcrest/Assets/Scenes/Demo_Scene.unity
       objectReference: {fileID: 0}
     - target: {fileID: 600744629834685196, guid: 23456ebfbaba7ad468003986bcc4a27f,
         type: 3}
@@ -35178,7 +35195,11 @@ PrefabInstance:
     - target: {fileID: 600744629834685196, guid: 23456ebfbaba7ad468003986bcc4a27f,
         type: 3}
       propertyPath: m_LocalRotation.y
+<<<<<<< Updated upstream:GoldCrest-EnemyUpdate/Goldcrest/Assets/Scenes/Demo_Scene.unity
       value: -0.8719062
+=======
+      value: 0.06940697
+>>>>>>> Stashed changes:Goldcrest/Assets/Scenes/Demo_Scene.unity
       objectReference: {fileID: 0}
     - target: {fileID: 600744629834685196, guid: 23456ebfbaba7ad468003986bcc4a27f,
         type: 3}
@@ -35188,7 +35209,11 @@ PrefabInstance:
     - target: {fileID: 600744629834685196, guid: 23456ebfbaba7ad468003986bcc4a27f,
         type: 3}
       propertyPath: m_LocalRotation.w
+<<<<<<< Updated upstream:GoldCrest-EnemyUpdate/Goldcrest/Assets/Scenes/Demo_Scene.unity
       value: -0.48967296
+=======
+      value: -0.99758846
+>>>>>>> Stashed changes:Goldcrest/Assets/Scenes/Demo_Scene.unity
       objectReference: {fileID: 0}
     - target: {fileID: 600744629834685196, guid: 23456ebfbaba7ad468003986bcc4a27f,
         type: 3}
@@ -35203,7 +35228,11 @@ PrefabInstance:
     - target: {fileID: 600744629834685196, guid: 23456ebfbaba7ad468003986bcc4a27f,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
+<<<<<<< Updated upstream:GoldCrest-EnemyUpdate/Goldcrest/Assets/Scenes/Demo_Scene.unity
       value: -238.638
+=======
+      value: -367.96
+>>>>>>> Stashed changes:Goldcrest/Assets/Scenes/Demo_Scene.unity
       objectReference: {fileID: 0}
     - target: {fileID: 600744629834685196, guid: 23456ebfbaba7ad468003986bcc4a27f,
         type: 3}
@@ -89391,6 +89420,7 @@ PrefabInstance:
     - target: {fileID: 9704744408241440, guid: 37e8ed321aeef9146974900bfc30f863, type: 3}
       propertyPath: m_Layer
       value: 8
+<<<<<<< Updated upstream:GoldCrest-EnemyUpdate/Goldcrest/Assets/Scenes/Demo_Scene.unity
       objectReference: {fileID: 0}
     - target: {fileID: 22570801605540507, guid: 37e8ed321aeef9146974900bfc30f863,
         type: 3}
@@ -89402,6 +89432,65 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 49958794182782736, guid: 37e8ed321aeef9146974900bfc30f863,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 126156832071012162, guid: 37e8ed321aeef9146974900bfc30f863,
+=======
+      objectReference: {fileID: 0}
+    - target: {fileID: 22570801605540507, guid: 37e8ed321aeef9146974900bfc30f863,
+>>>>>>> Stashed changes:Goldcrest/Assets/Scenes/Demo_Scene.unity
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+<<<<<<< Updated upstream:GoldCrest-EnemyUpdate/Goldcrest/Assets/Scenes/Demo_Scene.unity
+    - target: {fileID: 312976509945071900, guid: 37e8ed321aeef9146974900bfc30f863,
+=======
+    - target: {fileID: 46795833186708721, guid: 37e8ed321aeef9146974900bfc30f863,
+>>>>>>> Stashed changes:Goldcrest/Assets/Scenes/Demo_Scene.unity
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+<<<<<<< Updated upstream:GoldCrest-EnemyUpdate/Goldcrest/Assets/Scenes/Demo_Scene.unity
+    - target: {fileID: 355380534987923990, guid: 37e8ed321aeef9146974900bfc30f863,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 2560428360931065696}
+    - target: {fileID: 355380534987923990, guid: 37e8ed321aeef9146974900bfc30f863,
+        type: 3}
+      propertyPath: playercombat
+      value: 
+      objectReference: {fileID: 95960976}
+    - target: {fileID: 355380534987923990, guid: 37e8ed321aeef9146974900bfc30f863,
+        type: 3}
+      propertyPath: rapier
+      value: 
+      objectReference: {fileID: 1307466555}
+    - target: {fileID: 355380534987923990, guid: 37e8ed321aeef9146974900bfc30f863,
+        type: 3}
+      propertyPath: sword
+      value: 
+      objectReference: {fileID: 918863382}
+    - target: {fileID: 355380534987923991, guid: 37e8ed321aeef9146974900bfc30f863,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 355380534987923991, guid: 37e8ed321aeef9146974900bfc30f863,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 355380534987923991, guid: 37e8ed321aeef9146974900bfc30f863,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+=======
     - target: {fileID: 49958794182782736, guid: 37e8ed321aeef9146974900bfc30f863,
         type: 3}
       propertyPath: m_Layer
@@ -89446,11 +89535,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AngularDrag
       value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 355380534987923991, guid: 37e8ed321aeef9146974900bfc30f863,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
+>>>>>>> Stashed changes:Goldcrest/Assets/Scenes/Demo_Scene.unity
       objectReference: {fileID: 0}
     - target: {fileID: 512837617691745235, guid: 37e8ed321aeef9146974900bfc30f863,
         type: 3}
@@ -89810,6 +89895,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 23456ebfbaba7ad468003986bcc4a27f, type: 3}
 --- !u!4 &2560428360904829033
 Transform:
+<<<<<<< Updated upstream:GoldCrest-EnemyUpdate/Goldcrest/Assets/Scenes/Demo_Scene.unity
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -89885,11 +89971,91 @@ CapsuleCollider:
   m_Center: {x: 0, y: 0.85819024, z: 0}
 --- !u!54 &2560428360904829037
 Rigidbody:
+=======
+>>>>>>> Stashed changes:Goldcrest/Assets/Scenes/Demo_Scene.unity
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2560428360904829039}
+<<<<<<< Updated upstream:GoldCrest-EnemyUpdate/Goldcrest/Assets/Scenes/Demo_Scene.unity
+=======
+  m_LocalRotation: {x: -0, y: -0.99999744, z: 0, w: -0.0022687619}
+  m_LocalPosition: {x: 7.3074956, y: 0.0019201383, z: 40.162376}
+  m_LocalScale: {x: 0.9665888, y: 0.6443925, z: 0.9665888}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: -180.26, z: 0}
+--- !u!33 &2560428360904829034
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2560428360904829039}
+  m_Mesh: {fileID: 4300024, guid: fd7d68a65822e4a44a9ef78850e64cfc, type: 3}
+--- !u!23 &2560428360904829035
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2560428360904829039}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 61e2aa7d74a99b44d90995b1b876ad90, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!136 &2560428360904829036
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2560428360904829039}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.0017815
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.85819024, z: 0}
+--- !u!54 &2560428360904829037
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2560428360904829039}
+>>>>>>> Stashed changes:Goldcrest/Assets/Scenes/Demo_Scene.unity
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 10
@@ -89973,7 +90139,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 5006512736227899973}
   smoothSpeed: 7.5
+<<<<<<< Updated upstream:GoldCrest-EnemyUpdate/Goldcrest/Assets/Scenes/Demo_Scene.unity
   offset: {x: 0, y: 7, z: -7}
+=======
+  offset: {x: 0, y: 10, z: -10}
+>>>>>>> Stashed changes:Goldcrest/Assets/Scenes/Demo_Scene.unity
 --- !u!20 &2560428360931065696
 Camera:
   m_ObjectHideFlags: 0
