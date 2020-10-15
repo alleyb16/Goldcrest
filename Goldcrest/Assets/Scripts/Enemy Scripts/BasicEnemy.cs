@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class BasicEnemy : MonoBehaviour
 {
-
-    public float maxHealth = 100f;
+    private Animator anim;
+    public float maxHealth = 75f;
     private float currentHealth;
 
     public Image enemyHealthbar;
@@ -15,6 +15,7 @@ public class BasicEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
         currentHealth = maxHealth;
         //enemyHealthbar = GameObject.Find("enemyHealth").GetComponent<Image>();
     }
@@ -22,8 +23,8 @@ public class BasicEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // updateHealth();
-       // print(enemyHealthbar.fillAmount);
+        // updateHealth();
+        // print(enemyHealthbar.fillAmount);
     }
 
     public void TakeDamage(int damage)
@@ -42,13 +43,14 @@ public class BasicEnemy : MonoBehaviour
     void updateHealth()
     {
         //healthPercent = currentHealth / maxHealth;
-       // enemyHealthbar.fillAmount = healthPercent;
+        // enemyHealthbar.fillAmount = healthPercent;
     }
 
     void Die()
     {
         // Die animation
-
+        anim.SetBool("die", true);
+        //anim.Play("Die");
         // Disable Enemy
 
         print("Enemy Defeated");

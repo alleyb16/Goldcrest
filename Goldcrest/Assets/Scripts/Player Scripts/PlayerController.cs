@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     public bool dodgeReady = true;
     private float cooldownPercent;
 
+    public float moveSpeed = 5f;
+
     public Image cooldownIMG;
     //private Vector2 beginTouchPosition, endTouchPosition;
     //private int dodgeTime = 250; //TIMER MUST BE LESS THAN THIS TO DODGE
@@ -36,6 +38,8 @@ public class PlayerController : MonoBehaviour
     {
         //timer = new Stopwatch();
         cooldownIMG = GameObject.Find("DodgeCooldown").GetComponent<Image>();
+
+        moveSpeed = GameManager.Instance.moveSpeed;
 
         rb = GetComponent<Rigidbody>();
     }
@@ -162,44 +166,54 @@ public class PlayerController : MonoBehaviour
     {
         var rigidbody = GetComponent<Rigidbody>();
 
-        if (joystick.Horizontal >= 0.1f || joystick.Vertical >= 0.1f || joystick.Horizontal <= -0.1f || joystick.Vertical <= -.01f)
+        if (!GameManager.Instance.isDrinking)
         {
-            float hor = joystick.Horizontal;
-            float ver = joystick.Vertical;
-            Vector3 movement = new Vector3(hor, 0f, ver) * GameManager.Instance.moveSpeed * Time.deltaTime; // Calculates movement direction
-            transform.Translate(movement, Space.World); // Moves player
 
-            //ROTATION
-            float targetAngle = Mathf.Atan2(hor, ver) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0f, targetAngle, 0f).normalized;
+            if (joystick.Horizontal >= 0.1f || joystick.Vertical >= 0.1f || joystick.Horizontal <= -0.1f || joystick.Vertical <= -.01f)
+            {
+                float hor = joystick.Horizontal;
+                float ver = joystick.Vertical;
+                Vector3 movement = new Vector3(hor, 0f, ver) * moveSpeed * Time.deltaTime; // Calculates movement direction
+                transform.Translate(movement, Space.World); // Moves player
 
-            GameManager.Instance.isMoving = true;
-        }
-        else
-        {
-            GameManager.Instance.isMoving = false;
+                //ROTATION
+                float targetAngle = Mathf.Atan2(hor, ver) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(0f, targetAngle, 0f).normalized;
+
+                GameManager.Instance.isMoving = true;
+            }
+            else
+            {
+                GameManager.Instance.isMoving = false;
+            }
         }
     }
 
     public void attack()
     {
-        //attack
-        if (playercombat.attackReady)
+        if (!GameManager.Instance.isDrinking)
         {
-            GameManager.Instance.isAttacking = true;
-            playercombat.Attack();
+            //attack
+            if (playercombat.attackReady)
+            {
+                GameManager.Instance.isAttacking = true;
+                playercombat.Attack();
+            }
         }
     }
 
     public void startDodge()
     {
-        if (dodgeReady)
+        if (!GameManager.Instance.isDrinking)
         {
-            GameManager.Instance.isDodging = true;
-            playercombat.setInvuln();
-            rb.AddForce(transform.forward * GameManager.Instance.dodgeForce * 2);
-            dodgeCooldownTimer = dodgeCooldown;
-            dodgeReady = false;
+            if (dodgeReady)
+            {
+                GameManager.Instance.isDodging = true;
+                playercombat.setInvuln();
+                rb.AddForce(transform.forward * GameManager.Instance.dodgeForce * 2);
+                dodgeCooldownTimer = dodgeCooldown;
+                dodgeReady = false;
+            }
         }
     }
 

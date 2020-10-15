@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DoorScript : MonoBehaviour
 {
@@ -8,7 +9,8 @@ public class DoorScript : MonoBehaviour
     private float maxDoorHealth = 50f;
     private float currentDoorHealth;
 
-    
+    public Image doorHealthbar;
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +27,7 @@ public class DoorScript : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentDoorHealth -= damage;
-        //enemyHealthbar.fillAmount = currentHealth / maxHealth;
+        doorHealthbar.fillAmount = currentDoorHealth / maxDoorHealth;
 
         // play animation
 

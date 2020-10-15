@@ -16,7 +16,7 @@ public class PlayerCombat : MonoBehaviour
 
     public bool invuln = false;
     private float invulnTimer;
-    private float invulnTime = .5f;
+    private float invulnTime = .75f;
 
     public Image cooldown;
 
@@ -66,8 +66,7 @@ public class PlayerCombat : MonoBehaviour
                 if (enemy.tag == "Door") // Attacking doors
                 {
                     print("hitting Door");
-                    enemy.GetComponent<BasicEnemy>().TakeDamage(GameManager.Instance.weaponDamage);
-                    //enemy.GetComponent<Rigidbody>().AddForce(hitDirection.normalized * GameManager.Instance.weaponKnockback); // Knocks enemy away is specified direction
+                    enemy.GetComponent<DoorScript>().TakeDamage(GameManager.Instance.weaponDamage);
                 }
                 else
                 {
@@ -100,6 +99,7 @@ public class PlayerCombat : MonoBehaviour
             invulnTimer -= Time.deltaTime;
             if (invulnTimer <= 0)
             {
+                GameManager.Instance.invuln = false;
                 invuln = false;
                 print("Vulnerable");
             }
@@ -118,6 +118,7 @@ public class PlayerCombat : MonoBehaviour
     {
         if (!invuln)
         {
+            GameManager.Instance.invuln = true;
             invuln = true;
             print("Invulnerable");
             invulnTimer = invulnTime;

@@ -12,6 +12,11 @@ public class Consumable : MonoBehaviour
     private float cooldownPercent;
     public Image cooldown;
 
+    public Text chargesTxt;
+
+    private float drinkTimer;
+    private float drinkTime = 1f;
+
     void Start()
     {
         charges = GameManager.Instance.consumableCharges;
@@ -24,6 +29,7 @@ public class Consumable : MonoBehaviour
     {
         print(consumableReady);
         print("Cooldown Percent : " + cooldownPercent);
+        chargesTxt.text = (charges.ToString());
         if (!consumableReady)
         {
             updateCooldown(); // updates the current cooldown on potion
@@ -45,11 +51,12 @@ public class Consumable : MonoBehaviour
             if (charges > 0 && consumableReady)
             {
             print("Used Potion");
+            GameManager.Instance.isDrinking = true;
                 charges--;
                 GameManager.Instance.playerHealth += GameManager.Instance.healingDone;
             cooldownTimer = GameManager.Instance.consumableCooldown;
-            //cooldownTimer = consumableCooldown;
             consumableReady = false;
+            drinkTimer = drinkTime;
             }
     }
 
@@ -58,5 +65,14 @@ public class Consumable : MonoBehaviour
         cooldownPercent = cooldownTimer / GameManager.Instance.consumableCooldown;
         //cooldownPercent = cooldownTimer / consumableCooldown;
         cooldown.fillAmount = cooldownPercent;
+
+        if (GameManager.Instance.isDrinking)
+        {
+            drinkTimer -= Time.deltaTime;
+            if(drinkTimer <= 0f)
+            {
+                GameManager.Instance.isDrinking = false;
+            }
+        }
     }
 }

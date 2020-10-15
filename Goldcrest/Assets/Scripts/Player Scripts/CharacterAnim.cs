@@ -27,14 +27,29 @@ public class CharacterAnim : MonoBehaviour
         // Manages the attacking animation
         if (GameManager.Instance.isAttacking)
         {
-            anim.Play("Attack"); // anim.Play runs the animation once
-            GameManager.Instance.isAttacking = false;
+            if (!GameManager.Instance.isMoving)
+            {
+                anim.Play("Attack"); // anim.Play runs the animation once
+                GameManager.Instance.isAttacking = false;
+            }
+            if (GameManager.Instance.isMoving)
+            {
+                anim.Play("Yeetus");
+                GameManager.Instance.isAttacking = false;
+            }
         }
         // Manages the dodging animation
         if (GameManager.Instance.isDodging)
         {
             anim.Play("Roll");
             GameManager.Instance.isDodging = false;
+        }
+
+        // Plays drink animation
+        if (GameManager.Instance.isDrinking)
+        {
+            anim.Play("Drink");
+            //GameManager.Instance.isDrinking = false;
         }
     
     }

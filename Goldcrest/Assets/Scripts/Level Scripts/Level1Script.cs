@@ -61,6 +61,7 @@ public class Level1Script : MonoBehaviour
 
     public GameObject summary;    // UI summary menu
     public GameObject levelFail; // UI failed menu
+    public GameObject UI; // Main ui
 
     public OutOfBounds bounds;
 
@@ -80,6 +81,8 @@ public class Level1Script : MonoBehaviour
 
         gameOver = false;
         levelEnd = false;
+
+        UI.SetActive(true);
 
     }
 
@@ -122,6 +125,7 @@ public class Level1Script : MonoBehaviour
                 }
                 percentComplete(); //Determine percentage complete w/ par score
                 levelEnd = true; // Disable the timer
+                UI.SetActive(false);// disable main ui
                 summary.SetActive(true); // Set level over and display summary
                 awardCard();
                 GameManager.Instance.lvl2Unlocked = true;
@@ -199,6 +203,7 @@ public class Level1Script : MonoBehaviour
     {
         gameOver = true;
         Time.timeScale = 0f;
+        UI.SetActive(false);
         levelFail.SetActive(true);
     }
 

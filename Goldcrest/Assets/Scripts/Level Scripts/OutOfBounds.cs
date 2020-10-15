@@ -22,6 +22,7 @@ public class OutOfBounds : MonoBehaviour
         if (other.tag == "Player")
         {
             levelScript.gameOver = true;
+            levelScript.UI.SetActive(false);
             levelScript.levelFail.SetActive(true); // Set level over and display fail menu
 
             Time.timeScale = 0f; //Slows speed to a pause

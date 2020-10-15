@@ -192,6 +192,10 @@ public class GameManager : MonoBehaviour
     public bool isMoving = false;
     public bool isAttacking = false;
     public bool isDodging = false;
+    public bool isDrinking = false;
+
+    // Invuln state
+    public bool invuln = false;
 
 
     private void Awake()
