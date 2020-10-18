@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
     //public float speed = 1.5f;
 
     public GameObject wanderPoint;
+    public ParticleSystem blood;
 
     private bool _alive;
     //private bool _wander;
@@ -129,6 +130,7 @@ public class EnemyController : MonoBehaviour
             rb.AddForce(transform.up * 8f, ForceMode.Impulse);
             */
             anim.Play("attack");
+            //blood.Play();
             Invoke(nameof(fire), .5f);
 
             alreadyAttacked = true;

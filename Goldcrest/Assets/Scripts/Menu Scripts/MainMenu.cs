@@ -43,7 +43,7 @@ public class MainMenu : MonoBehaviour
     {
         if (GameManager.Instance.lvl2Unlocked)
         {
-            SceneManager.LoadScene("Scenes/Level1", LoadSceneMode.Single); // Load second level
+            SceneManager.LoadScene("Scenes/Level-1", LoadSceneMode.Single); // Load second level
         }
     }
 

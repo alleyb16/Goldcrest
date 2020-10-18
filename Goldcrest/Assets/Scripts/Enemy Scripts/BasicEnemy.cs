@@ -8,6 +8,7 @@ public class BasicEnemy : MonoBehaviour
     private Animator anim;
     public float maxHealth = 75f;
     private float currentHealth;
+    public ParticleSystem blood;
 
     public Image enemyHealthbar;
     private float healthPercent;
@@ -31,6 +32,7 @@ public class BasicEnemy : MonoBehaviour
     {
         currentHealth -= damage;
         enemyHealthbar.fillAmount = currentHealth / maxHealth;
+        blood.Play();
 
         // play animation
 
