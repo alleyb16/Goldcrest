@@ -9,9 +9,10 @@ using UnityEngine.SceneManagement;
 
 public class Level1Script : MonoBehaviour
 {
-
+    // Variables
+    #region
     //private int coins = 0;
-   // private int score = 0;
+    // private int score = 0;
     private float levelTimer = 300f;
     public int timeRemaining;
 
@@ -64,14 +65,20 @@ public class Level1Script : MonoBehaviour
     public GameObject UI; // Main ui
 
     public OutOfBounds bounds;
+    public GearSwap gear;
+
+    #endregion
 
     // Start is called before the first frame update
     void Start()
     {
+        gear.equipGear();
+
         // Resets level stats on beginning new level
         GameManager.Instance.coinsCollected = 0;
         GameManager.Instance.currentScore = 0;
         GameManager.Instance.playerHealth = GameManager.Instance.playerMaxHealth;
+        GameManager.Instance.isDead = false;
 
         star1.enabled = false;
         star2.enabled = false;
@@ -102,7 +109,8 @@ public class Level1Script : MonoBehaviour
         // Fails level if player dies
         if (GameManager.Instance.playerHealth <= 0)
         {
-            failLevel();
+            GameManager.Instance.isDead = true;
+            Invoke(nameof(failLevel), 5f);
         }
     }
 
@@ -131,6 +139,7 @@ public class Level1Script : MonoBehaviour
                 GameManager.Instance.lvl2Unlocked = true;
                 calculatePerformance(); // Calculates player performance and displays it to player
                 Time.timeScale = 0f; //Slows speed to a pause
+                GameManager.Instance.hasKey = false;
                 GameManager.Instance.depositCoins(); // Store collected coins
 
             }
@@ -211,7 +220,7 @@ public class Level1Script : MonoBehaviour
     {
         if (completionPercent < 100) // if player gets less than 3 stars, select from tier 1 cards to award
         {
-            var randomNum = Random.Range(1, 7);
+            var randomNum = Random.Range(1, 8);
             if (randomNum == 1)
             {
                 if (!GameManager.Instance.hasSwordT1) // Award the player a Tier 1 Sword
@@ -332,7 +341,7 @@ public class Level1Script : MonoBehaviour
         }
         if (completionPercent >= 100) // if player gets 3 stars, select from tier 1 and 2 cards to award
         {
-            var randomNum = Random.Range(1, 14);
+            var randomNum = Random.Range(1, 15);
             if (randomNum == 1)
             {
                 if (!GameManager.Instance.hasSwordT1) // Award the player a Tier 1 Sword

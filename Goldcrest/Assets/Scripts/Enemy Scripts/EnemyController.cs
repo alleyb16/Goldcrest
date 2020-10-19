@@ -12,7 +12,7 @@ public class EnemyController : MonoBehaviour
 
     public GameObject wanderPoint;
 
-    private bool _alive;
+    //private bool _alive;
     //private bool _wander;
     //Stopwatch timer = new Stopwatch();
     //private Vector3 target;
@@ -31,12 +31,14 @@ public class EnemyController : MonoBehaviour
     public float timeBetweenAttacks;
     bool alreadyAttacked;
     public GameObject projectile;
+    public float projectileSpeed = 25f;
 
     //New Stuff States
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
     //Animation State
     private Animator anim;
+    public BasicEnemy enemy;
 
 
     //New Stuff Awake
@@ -65,8 +67,6 @@ public class EnemyController : MonoBehaviour
         if (playerInSightRange && playerInAttackRange)
         {
             anim.SetBool("run", false);
-            //anim.Play("attack");
-            //anim.SetBool("atk", true);
             AttackPlayer();
         }
     }
@@ -118,34 +118,30 @@ public class EnemyController : MonoBehaviour
         //Make sure enemy doesn't move
         agent.SetDestination(transform.position);
 
-        transform.LookAt(player);
+        transform.LookAt(player); // makes enemy face player
 
         if (!alreadyAttacked)
         {
-            //Attack Code Here
-            print("fire");
-            /*Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
-            */
-            anim.Play("attack");
-            Invoke(nameof(fire), .5f);
+            anim.Play("attack"); // Plays the enemy attack animation
+            Invoke(nameof(fire), 1.25f); // queues the attack projectile
 
-            alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            alreadyAttacked = true; // sets the attacked state to true
+            Invoke(nameof(ResetAttack), timeBetweenAttacks); // Sets attacked state to false after a delay
         }
     }
-    private void fire()
+    private void fire() // Fires the projectile
     {
-        Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-        rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-        rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+        if (enemy.isDead == false) // This doesn't prevent the projectile from firing beyond the grave... Why?
+        {
+            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            rb.AddForce(transform.forward * projectileSpeed, ForceMode.Impulse);
+            rb.AddForce(transform.up * 5f, ForceMode.Impulse);
+        }
     }
     //New Stuff Reset Attack
-    private void ResetAttack()
+    private void ResetAttack() // Resets the attacked state
     {
         alreadyAttacked = false;
-        //anim.Play("attack");
     }
     private void OnDrawGizmosSelected()
     {

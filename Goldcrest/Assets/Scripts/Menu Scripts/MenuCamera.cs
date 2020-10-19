@@ -4,6 +4,11 @@ public class MenuCamera : MonoBehaviour
 {
     public float rotateSpeed;
 
+    void Start()
+    {
+        Screen.SetResolution((int)Screen.width, (int)Screen.height, true);
+    }
+
     // Update is called once per frame
     void Update()
     {

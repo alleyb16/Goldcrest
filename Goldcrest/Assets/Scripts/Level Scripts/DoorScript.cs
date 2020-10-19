@@ -18,12 +18,6 @@ public class DoorScript : MonoBehaviour
         currentDoorHealth = maxDoorHealth;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void TakeDamage(int damage)
     {
         currentDoorHealth -= damage;

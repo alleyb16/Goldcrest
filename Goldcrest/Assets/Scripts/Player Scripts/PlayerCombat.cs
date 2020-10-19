@@ -10,9 +10,9 @@ public class PlayerCombat : MonoBehaviour
     public LayerMask enemyLayers;
 
     public bool attackReady = true;
-    private float cooldownTimer;
+    public float cooldownTimer;
     private float cooldownPercent;
-    private float attackCooldown;
+    public float attackCooldown;
 
     public bool invuln = false;
     private float invulnTimer;
@@ -68,6 +68,10 @@ public class PlayerCombat : MonoBehaviour
                     print("hitting Door");
                     enemy.GetComponent<DoorScript>().TakeDamage(GameManager.Instance.weaponDamage);
                 }
+                if (enemy.tag == "Chest") // Attacking chests
+                {
+                    enemy.GetComponent<ChestScript>().TakeDamage(GameManager.Instance.weaponDamage);
+                }
                 else
                 {
                     //apply damage
@@ -78,12 +82,14 @@ public class PlayerCombat : MonoBehaviour
 
                     // ADD KNOCKBACK
                     hitDirection = enemy.transform.position - GameObject.FindWithTag("Player").transform.position; // Calculates angle between player and enemy
-                    enemy.GetComponent<Rigidbody>().AddForce(hitDirection.normalized * GameManager.Instance.weaponKnockback, ForceMode.Impulse); // Knocks enemy away is specified direction
+                    enemy.GetComponent<Rigidbody>().AddForce(hitDirection.normalized * GameManager.Instance.weaponKnockback * 2.5f, ForceMode.Impulse); // Knocks enemy away is specified direction
+                    enemy.GetComponent<Rigidbody>().AddForce(transform.up * GameManager.Instance.weaponKnockback * 3f, ForceMode.Impulse);
+
 
                 }
             }
             //cooldownTimer = GameManager.Instance.attackCooldown;
-            cooldownTimer = attackCooldown;
+            //cooldownTimer = attackCooldown;
             attackReady = false;
         }
     }

@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
 
 
     // Unlocked Cards
+    #region
     // Offensive cards
     public bool hasSwordT1 = true;
     public bool hasSwordT2 = false;
@@ -82,9 +83,10 @@ public class GameManager : MonoBehaviour
     public bool hasHealingT1 = true;
     public bool hasHealingT2 = false;
     public bool hasHealingT3 = false;
-
+    #endregion
 
     // Number of cards owned
+    #region
     public int numSwordT1 = 1;
     public int numSwordT2 = 0;
     public int numSwordT3 = 0;
@@ -113,6 +115,7 @@ public class GameManager : MonoBehaviour
     public int numHealingT2 = 0;
     public int numHealingT3 = 0;
 
+    // Calculates total cards collected to display in inventory
     public int addSwordT1 = 1;
     public int addSwordT2 = 0;
     public int addSwordT3 = 0;
@@ -136,8 +139,10 @@ public class GameManager : MonoBehaviour
     public int addHealingT1 = 1;
     public int addHealingT2 = 0;
     public int addHealingT3 = 0;
+    #endregion
 
     // Equipped Cards
+    #region
     // Offensive cards
     public bool SwordT1 = true;
     public bool SwordT2 = false;
@@ -168,7 +173,7 @@ public class GameManager : MonoBehaviour
     public bool HealingT1 = true;
     public bool HealingT2 = false;
     public bool HealingT3 = false;
-
+    #endregion
 
     // Player stats
     // weapon stats
@@ -190,9 +195,14 @@ public class GameManager : MonoBehaviour
 
     //Animation states
     public bool isMoving = false;
+    public bool isWalking = false;
     public bool isAttacking = false;
     public bool isDodging = false;
     public bool isDrinking = false;
+    public bool isStunned = false;
+    public bool isDead = false;
+
+    public bool hasKey = false;
 
     // Invuln state
     public bool invuln = false;
@@ -214,5 +224,286 @@ public class GameManager : MonoBehaviour
     public void level1Rating()
     {
         lvl1Rating = level1Score / 500f * 100f;
+    }
+
+    public void SaveGame()
+    {
+        SaveSystem.SaveGame(this);
+    }
+    public void LoadGame()
+    {
+        PlayerData data = SaveSystem.LoadGame();
+
+        // basic inventory and levels
+        totalCoins = data.totalCoins;
+        levelsCompleted = data.levelsCompleted;
+
+        level1Completed = data.level1Completed;
+        level2Completed = data.level2Completed;
+        level3Completed = data.level3Completed;
+        level4Completed = data.level4Completed;
+
+        lvl1Stars = data.lvl1Stars;
+        lvl2Stars = data.lvl2Stars;
+        lvl3Stars = data.lvl3Stars;
+        lvl4Stars = data.lvl3Stars;
+
+        offensiveCardsCollected = data.offensiveCardsCollected;
+        defensiveCardsCollected = data.defensiveCardsCollected;
+        consumableCardsCollected = data.consumableCardsCollected;
+
+        level1Score = data.level1Score;
+        lvl1Rating = data.lvl1Rating;
+
+        lvl2Unlocked = data.lvl2Unlocked;
+
+        // card data
+        hasSwordT1 = data.hasSwordT1;
+        hasSwordT2 = data.hasSwordT2;
+        hasSwordT3 = data.hasSwordT3;
+        hasAxeT1 = data.hasAxeT1;
+        hasAxeT2 = data.hasAxeT2;
+        hasAxeT3 = data.hasAxeT3;
+        hasSpearT1 = data.hasSpearT1;
+        hasSpearT2 = data.hasSpearT2;
+        hasSpearT3 = data.hasSpearT3;
+
+        hasClothT1 = data.hasClothT1;
+        hasClothT2 = data.hasClothT2;
+        hasClothT3 = data.hasClothT3;
+        hasLeatherT1 = data.hasLeatherT1;
+        hasLeatherT2 = data.hasLeatherT2;
+        hasLeatherT3 = data.hasLeatherT3;
+        hasPlateT1 = data.hasPlateT1;
+        hasPlateT2 = data.hasPlateT2;
+        hasPlateT3 = data.hasPlateT3;
+
+        hasHealingT1 = data.hasHealingT1;
+        hasHealingT2 = data.hasHealingT2;
+        hasHealingT3 = data.hasHealingT3;
+
+        numSwordT1 = data.numSwordT1;
+        numSwordT2 = data.numSwordT2;
+        numSwordT3 = data.numSwordT3;
+        numAxeT1 = data.numAxeT1;
+        numAxeT2 = data.numAxeT2;
+        numAxeT3 = data.numAxeT3;
+        numSpearT1 = data.numSpearT1;
+        numSpearT2 = data.numSpearT2;
+        numSpearT3 = data.numSpearT3;
+
+        numClothT1 = data.numClothT1;
+        numClothT2 = data.numClothT2;
+        numClothT3 = data.numClothT3;
+        numLeatherT1 = data.numLeatherT1;
+        numLeatherT2 = data.numLeatherT2;
+        numLeatherT3 = data.numLeatherT3;
+        numPlateT1 = data.numPlateT1;
+        numPlateT2 = data.numPlateT2;
+        numPlateT3 = data.numPlateT3;
+
+        numHealingT1 = data.numHealingT1;
+        numHealingT2 = data.numHealingT2;
+        numHealingT3 = data.numHealingT3;
+
+        addSwordT1 = data.addSwordT1;
+        addSwordT2 = data.addSwordT2;
+        addSwordT3 = data.addSwordT3;
+        addAxeT1 = data.addAxeT1;
+        addAxeT2 = data.addAxeT2;
+        addAxeT3 = data.addAxeT3;
+        addSpearT1 = data.addSpearT1;
+        addSpearT2 = data.addSpearT2;
+        addSpearT3 = data.addSpearT3;
+
+        addClothT1 = data.addClothT1;
+        addClothT2 = data.addClothT2;
+        addClothT3 = data.addClothT3;
+        addLeatherT1 = data.addLeatherT1;
+        addLeatherT2 = data.addLeatherT2;
+        addLeatherT3 = data.addLeatherT3;
+        addPlateT1 = data.addPlateT1;
+        addPlateT2 = data.addPlateT2;
+        addPlateT3 = data.addPlateT3;
+
+        addHealingT1 = data.addHealingT1;
+        addHealingT2 = data.addHealingT2;
+        addHealingT3 = data.addHealingT3;
+
+        SwordT1 = data.SwordT1;
+        SwordT2 = data.SwordT2;
+        SwordT3 = data.SwordT3;
+        AxeT1 = data.AxeT1;
+        AxeT2 = data.AxeT2;
+        AxeT3 = data.AxeT3;
+        SpearT1 = data.SpearT1;
+        SpearT2 = data.SpearT2;
+        SpearT3 = data.SpearT3;
+
+        ClothT1 = data.ClothT1;
+        ClothT2 = data.ClothT2;
+        ClothT3 = data.ClothT3;
+        LeatherT1 = data.LeatherT1;
+        LeatherT2 = data.LeatherT2;
+        LeatherT3 = data.LeatherT3;
+        PlateT1 = data.PlateT1;
+        PlateT2 = data.PlateT2;
+        PlateT3 = data.PlateT3;
+
+        HealingT1 = data.HealingT1;
+        HealingT2 = data.HealingT2;
+        HealingT3 = data.HealingT3;
+
+        // Player stats
+        weaponDamage = data.weaponDamage;
+        weaponRange = data.weaponRange;
+        attackCooldown = data.attackCooldown;
+        weaponKnockback = data.weaponKnockback;
+
+        playerMaxHealth = data.playerMaxHealth;
+        moveSpeed = data.moveSpeed;
+        dodgeForce = data.dodgeForce;
+
+        consumableCharges = data.consumableCharges;
+        healingDone = data.healingDone;
+        consumableCooldown = data.consumableCooldown;
+    }
+
+    public void ResetProgress()
+    {
+        // basic inventory and levels
+        totalCoins = 0;
+        levelsCompleted = 0;
+
+        level1Completed = false;
+        level2Completed = false;
+        level3Completed = false;
+        level4Completed = false;
+
+        lvl1Stars = 0;
+        lvl2Stars = 0;
+        lvl3Stars = 0;
+        lvl4Stars = 0;
+
+        offensiveCardsCollected = 1;
+        defensiveCardsCollected = 1;
+        consumableCardsCollected = 1;
+
+        level1Score = 0;
+        lvl1Rating = 0;
+
+        lvl2Unlocked = false;
+
+        // card data
+       /* hasSwordT1 = data.hasSwordT1;
+        hasSwordT2 = data.hasSwordT2;
+        hasSwordT3 = data.hasSwordT3;
+        hasAxeT1 = data.hasAxeT1;
+        hasAxeT2 = data.hasAxeT2;
+        hasAxeT3 = data.hasAxeT3;
+        hasSpearT1 = data.hasSpearT1;
+        hasSpearT2 = data.hasSpearT2;
+        hasSpearT3 = data.hasSpearT3;
+
+        hasClothT1 = data.hasClothT1;
+        hasClothT2 = data.hasClothT2;
+        hasClothT3 = data.hasClothT3;
+        hasLeatherT1 = data.hasLeatherT1;
+        hasLeatherT2 = data.hasLeatherT2;
+        hasLeatherT3 = data.hasLeatherT3;
+        hasPlateT1 = data.hasPlateT1;
+        hasPlateT2 = data.hasPlateT2;
+        hasPlateT3 = data.hasPlateT3;
+
+        hasHealingT1 = data.hasHealingT1;
+        hasHealingT2 = data.hasHealingT2;
+        hasHealingT3 = data.hasHealingT3;
+
+        numSwordT1 = data.numSwordT1;
+        numSwordT2 = data.numSwordT2;
+        numSwordT3 = data.numSwordT3;
+        numAxeT1 = data.numAxeT1;
+        numAxeT2 = data.numAxeT2;
+        numAxeT3 = data.numAxeT3;
+        numSpearT1 = data.numSpearT1;
+        numSpearT2 = data.numSpearT2;
+        numSpearT3 = data.numSpearT3;
+
+        numClothT1 = data.numClothT1;
+        numClothT2 = data.numClothT2;
+        numClothT3 = data.numClothT3;
+        numLeatherT1 = data.numLeatherT1;
+        numLeatherT2 = data.numLeatherT2;
+        numLeatherT3 = data.numLeatherT3;
+        numPlateT1 = data.numPlateT1;
+        numPlateT2 = data.numPlateT2;
+        numPlateT3 = data.numPlateT3;
+
+        numHealingT1 = data.numHealingT1;
+        numHealingT2 = data.numHealingT2;
+        numHealingT3 = data.numHealingT3;
+
+        addSwordT1 = data.addSwordT1;
+        addSwordT2 = data.addSwordT2;
+        addSwordT3 = data.addSwordT3;
+        addAxeT1 = data.addAxeT1;
+        addAxeT2 = data.addAxeT2;
+        addAxeT3 = data.addAxeT3;
+        addSpearT1 = data.addSpearT1;
+        addSpearT2 = data.addSpearT2;
+        addSpearT3 = data.addSpearT3;
+
+        addClothT1 = data.addClothT1;
+        addClothT2 = data.addClothT2;
+        addClothT3 = data.addClothT3;
+        addLeatherT1 = data.addLeatherT1;
+        addLeatherT2 = data.addLeatherT2;
+        addLeatherT3 = data.addLeatherT3;
+        addPlateT1 = data.addPlateT1;
+        addPlateT2 = data.addPlateT2;
+        addPlateT3 = data.addPlateT3;
+
+        addHealingT1 = data.addHealingT1;
+        addHealingT2 = data.addHealingT2;
+        addHealingT3 = data.addHealingT3;
+
+        SwordT1 = data.SwordT1;
+        SwordT2 = data.SwordT2;
+        SwordT3 = data.SwordT3;
+        AxeT1 = data.AxeT1;
+        AxeT2 = data.AxeT2;
+        AxeT3 = data.AxeT3;
+        SpearT1 = data.SpearT1;
+        SpearT2 = data.SpearT2;
+        SpearT3 = data.SpearT3;
+
+        ClothT1 = data.ClothT1;
+        ClothT2 = data.ClothT2;
+        ClothT3 = data.ClothT3;
+        LeatherT1 = data.LeatherT1;
+        LeatherT2 = data.LeatherT2;
+        LeatherT3 = data.LeatherT3;
+        PlateT1 = data.PlateT1;
+        PlateT2 = data.PlateT2;
+        PlateT3 = data.PlateT3;
+
+        HealingT1 = data.HealingT1;
+        HealingT2 = data.HealingT2;
+        HealingT3 = data.HealingT3;
+
+        // Player stats
+        weaponDamage = data.weaponDamage;
+        weaponRange = data.weaponRange;
+        attackCooldown = data.attackCooldown;
+        weaponKnockback = data.weaponKnockback;
+
+        playerMaxHealth = data.playerMaxHealth;
+        moveSpeed = data.moveSpeed;
+        dodgeForce = data.dodgeForce;
+
+        consumableCharges = data.consumableCharges;
+        healingDone = data.healingDone;
+        consumableCooldown = data.consumableCooldown;
+        */
     }
 }

@@ -12,19 +12,21 @@ public class BasicEnemy : MonoBehaviour
     public Image enemyHealthbar;
     private float healthPercent;
 
+    public bool isDead = false;
+
+    public ParticleSystem blood;
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         currentHealth = maxHealth;
-        //enemyHealthbar = GameObject.Find("enemyHealth").GetComponent<Image>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // updateHealth();
-        // print(enemyHealthbar.fillAmount);
+
     }
 
     public void TakeDamage(int damage)
@@ -32,7 +34,7 @@ public class BasicEnemy : MonoBehaviour
         currentHealth -= damage;
         enemyHealthbar.fillAmount = currentHealth / maxHealth;
 
-        // play animation
+        blood.Play();
 
         if (currentHealth <= 0)
         {
@@ -40,20 +42,11 @@ public class BasicEnemy : MonoBehaviour
         }
     }
 
-    void updateHealth()
-    {
-        //healthPercent = currentHealth / maxHealth;
-        // enemyHealthbar.fillAmount = healthPercent;
-    }
-
     void Die()
     {
         // Die animation
         anim.SetBool("die", true);
-        //anim.Play("Die");
         // Disable Enemy
-
-        print("Enemy Defeated");
         GameManager.Instance.currentScore += 15;
         GetComponent<CapsuleCollider>().enabled = false;
         //this.enabled = false;

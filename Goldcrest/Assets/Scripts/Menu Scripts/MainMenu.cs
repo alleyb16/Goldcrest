@@ -31,6 +31,8 @@ public class MainMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
 
+        GameManager.Instance.isMoving = false;
+
         lvl1Star1.enabled = false; // Sets level 1 stars blank
         lvl1Star2.enabled = false;
         lvl1Star3.enabled = false;
@@ -43,7 +45,7 @@ public class MainMenu : MonoBehaviour
     {
         if (GameManager.Instance.lvl2Unlocked)
         {
-            SceneManager.LoadScene("Scenes/Level1", LoadSceneMode.Single); // Load second level
+            SceneManager.LoadScene("Scenes/Level-1", LoadSceneMode.Single); // Load second level
         }
     }
 
@@ -96,5 +98,14 @@ public class MainMenu : MonoBehaviour
         offensiveCardsCollected.text = (inventory.totalOffensiveCards + " / 9").ToString();
         defensiveCardsCollected.text = (inventory.totalDefensiveCards + " / 9").ToString();
         consumableCardsCollected.text = (inventory.totalConsumableCards + " / 3").ToString();
+    }
+
+    public void SaveGame()
+    {
+        GameManager.Instance.SaveGame();
+    }
+    public void LoadGame()
+    {
+        GameManager.Instance.LoadGame();
     }
 }

@@ -4,26 +4,33 @@ using UnityEngine;
 
 public class projectile : MonoBehaviour
 {
+    public float bulletDamage = 10; // How much damage bullet does to player
+    public float bulletLifespan = 3; // How long the bullet exists in the scene
+
+    public Transform target;
+
     // Start is called before the first frame update
     void Start()
     {
-        Invoke(nameof(onDeath), 3);
+        Invoke(nameof(onDeath), bulletLifespan);
+        target = GameObject.FindWithTag("Player").transform;
+        transform.LookAt(target);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     private void onDeath()
     {
         Destroy(gameObject);
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) // Damages player if the projectile collides
     {
         if (other.CompareTag("Player") && GameManager.Instance.invuln == false)
         {
-            GameManager.Instance.playerHealth -= 10;
+            GameManager.Instance.playerHealth -= bulletDamage;
             Destroy(gameObject);
             // KNOCKBACK ON PLAYER (DOESN'T WORK RN)
             //hitDirection = player.transform.position - transform.position; // Calculates angle between player and enemy

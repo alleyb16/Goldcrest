@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
 
     public float moveSpeed = 5f;
 
+    private float stunTimer;
+    private float stunTime = 1.5f;
+
     public Image cooldownIMG;
     //private Vector2 beginTouchPosition, endTouchPosition;
     //private int dodgeTime = 250; //TIMER MUST BE LESS THAN THIS TO DODGE
@@ -41,6 +44,19 @@ public class PlayerController : MonoBehaviour
 
         moveSpeed = GameManager.Instance.moveSpeed;
 
+        if (GameManager.Instance.ClothT1 || GameManager.Instance.ClothT2 || GameManager.Instance.ClothT3)
+        {
+            dodgeCooldown = 1.5f;
+        }
+        if (GameManager.Instance.LeatherT1 || GameManager.Instance.LeatherT2 || GameManager.Instance.LeatherT3)
+        {
+            dodgeCooldown = 2f;
+        }
+        if (GameManager.Instance.PlateT1 || GameManager.Instance.PlateT2 || GameManager.Instance.PlateT3)
+        {
+            dodgeCooldown = 2.5f;
+        }
+
         rb = GetComponent<Rigidbody>();
     }
 
@@ -49,15 +65,10 @@ public class PlayerController : MonoBehaviour
     {
         movePlayer();
         updateCooldown();
+        print(GameManager.Instance.isMoving + " is moving");
 
-        if (!dodgeReady)
-        {
-            dodgeCooldownTimer -= Time.deltaTime;
-            if(dodgeCooldownTimer <= 0f)
-            {
-                dodgeReady = true;
-            }
-        }
+        // Cooldowns
+        
 
         // Old Trash
         #region
@@ -166,10 +177,10 @@ public class PlayerController : MonoBehaviour
     {
         var rigidbody = GetComponent<Rigidbody>();
 
-        if (!GameManager.Instance.isDrinking)
+        if (!GameManager.Instance.isDrinking && !GameManager.Instance.isStunned && !GameManager.Instance.isDead)
         {
 
-            if (joystick.Horizontal >= 0.1f || joystick.Vertical >= 0.1f || joystick.Horizontal <= -0.1f || joystick.Vertical <= -.01f)
+            if (joystick.Horizontal >= 0.5f || joystick.Vertical >= 0.5f || joystick.Horizontal <= -0.5f || joystick.Vertical <= -0.5f)
             {
                 float hor = joystick.Horizontal;
                 float ver = joystick.Vertical;
@@ -181,34 +192,57 @@ public class PlayerController : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0f, targetAngle, 0f).normalized;
 
                 GameManager.Instance.isMoving = true;
+                GameManager.Instance.isWalking = false;
             }
-            else
+            if ((joystick.Horizontal < 0.5f && joystick.Vertical < 0.5f && joystick.Horizontal > -0.5f && joystick.Vertical > -0.5f) && joystick.Horizontal != 0f && joystick.Vertical != 0f)
+            {
+                float hor = joystick.Horizontal;
+                float ver = joystick.Vertical;
+                Vector3 movement = new Vector3(hor, 0f, ver) * moveSpeed * Time.deltaTime; // Calculates movement direction
+                transform.Translate(movement, Space.World); // Moves player
+
+                //ROTATION
+                float targetAngle = Mathf.Atan2(hor, ver) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(0f, targetAngle, 0f).normalized;
+
+                GameManager.Instance.isWalking = true;
+                GameManager.Instance.isMoving = false;
+            }
+            if (joystick.Horizontal == 0f && joystick.Vertical == 0f)
             {
                 GameManager.Instance.isMoving = false;
+                GameManager.Instance.isWalking = false;
             }
         }
     }
 
     public void attack()
     {
-        if (!GameManager.Instance.isDrinking)
+        if (!GameManager.Instance.isDrinking && !GameManager.Instance.isStunned && !GameManager.Instance.isDead)
         {
             //attack
             if (playercombat.attackReady)
             {
                 GameManager.Instance.isAttacking = true;
-                playercombat.Attack();
+                playercombat.cooldownTimer = playercombat.attackCooldown;
+                Invoke(nameof(getAttack), .4f);
             }
         }
     }
 
     public void startDodge()
     {
-        if (!GameManager.Instance.isDrinking)
+        if (!GameManager.Instance.isDrinking && !GameManager.Instance.isStunned && !GameManager.Instance.isDead)
         {
             if (dodgeReady)
             {
                 GameManager.Instance.isDodging = true;
+                if (GameManager.Instance.PlateT1 || GameManager.Instance.PlateT2 || GameManager.Instance.PlateT3)
+                {
+                    GameManager.Instance.isStunned = true;
+                    GameManager.Instance.isMoving = false;
+                    stunTimer = stunTime;
+                }
                 playercombat.setInvuln();
                 rb.AddForce(transform.forward * GameManager.Instance.dodgeForce * 2);
                 dodgeCooldownTimer = dodgeCooldown;
@@ -220,6 +254,28 @@ public class PlayerController : MonoBehaviour
     private void updateCooldown()
     {
         cooldownPercent = dodgeCooldownTimer / dodgeCooldown;
-        cooldownIMG.fillAmount = cooldownPercent;
+        cooldownIMG.fillAmount = cooldownPercent; // dodge cooldown filter
+
+        if (!dodgeReady) // Dodge cooldown timer
+        {
+            dodgeCooldownTimer -= Time.deltaTime;
+            if (dodgeCooldownTimer <= 0f)
+            {
+                dodgeReady = true;
+            }
+        }
+        if (GameManager.Instance.isStunned) // Stunned timer
+        {
+            stunTimer -= Time.deltaTime;
+            if (stunTimer <= 0)
+            {
+                GameManager.Instance.isStunned = false;
+            }
+        }
+    }
+
+    private void getAttack()
+    {
+        playercombat.Attack();
     }
 }

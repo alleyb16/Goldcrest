@@ -48,7 +48,7 @@ public class Consumable : MonoBehaviour
 
     public void UsePotion()
     {
-            if (charges > 0 && consumableReady)
+            if (charges > 0 && consumableReady && !GameManager.Instance.isStunned && !GameManager.Instance.isDead)
             {
             print("Used Potion");
             GameManager.Instance.isDrinking = true;

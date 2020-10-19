@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Loadout : MonoBehaviour
 {
+    public GearSwap gear;
 
     public Text HealthScore;
     public Text MoveSpeedScore;
@@ -70,6 +71,31 @@ public class Loadout : MonoBehaviour
     public Image HealingT2Cover;
     public Image HealingT3Cover;
 
+    // Borders for Equipped cards
+    public Image SwordT1Border;
+    public Image SwordT2Border;
+    public Image SwordT3Border;
+    public Image AxeT1Border;
+    public Image AxeT2Border;
+    public Image AxeT3Border;
+    public Image SpearT1Border;
+    public Image SpearT2Border;
+    public Image SpearT3Border;
+
+    public Image ClothT1Border;
+    public Image ClothT2Border;
+    public Image ClothT3Border;
+    public Image LeatherT1Border;
+    public Image LeatherT2Border;
+    public Image LeatherT3Border;
+    public Image PlateT1Border;
+    public Image PlateT2Border;
+    public Image PlateT3Border;
+
+    public Image HealingT1Border;
+    public Image HealingT2Border;
+    public Image HealingT3Border;
+
     void Start()
     {
 
@@ -81,6 +107,8 @@ public class Loadout : MonoBehaviour
         updateCardImage();
         CalculateStats();
         revealCards();
+        ShowCardBorder();
+        gear.equipGear();
     }
 
     // Edits player's stats page based on cards equipped
@@ -394,4 +422,248 @@ public class Loadout : MonoBehaviour
             HealingT3Cover.enabled = true;
         }
     }
+
+    public void ShowCardBorder()
+    {
+        // Offensive Borders
+        if (GameManager.Instance.SwordT1)
+        {
+            SwordT1Border.enabled = true;
+            SwordT2Border.enabled = false;
+            SwordT3Border.enabled = false;
+            AxeT1Border.enabled = false;
+            AxeT2Border.enabled = false;
+            AxeT3Border.enabled = false;
+            SpearT1Border.enabled = false;
+            SpearT2Border.enabled = false;
+            SpearT3Border.enabled = false;
+        }
+        if (GameManager.Instance.SwordT2)
+        {
+            SwordT1Border.enabled = false;
+            SwordT2Border.enabled = true;
+            SwordT3Border.enabled = false;
+            AxeT1Border.enabled = false;
+            AxeT2Border.enabled = false;
+            AxeT3Border.enabled = false;
+            SpearT1Border.enabled = false;
+            SpearT2Border.enabled = false;
+            SpearT3Border.enabled = false;
+        }
+        if (GameManager.Instance.SwordT3)
+        {
+            SwordT1Border.enabled = false;
+            SwordT2Border.enabled = false;
+            SwordT3Border.enabled = true;
+            AxeT1Border.enabled = false;
+            AxeT2Border.enabled = false;
+            AxeT3Border.enabled = false;
+            SpearT1Border.enabled = false;
+            SpearT2Border.enabled = false;
+            SpearT3Border.enabled = false;
+        }
+        if (GameManager.Instance.AxeT1)
+        {
+            SwordT1Border.enabled = false;
+            SwordT2Border.enabled = false;
+            SwordT3Border.enabled = false;
+            AxeT1Border.enabled = true;
+            AxeT2Border.enabled = false;
+            AxeT3Border.enabled = false;
+            SpearT1Border.enabled = false;
+            SpearT2Border.enabled = false;
+            SpearT3Border.enabled = false;
+        }
+        if (GameManager.Instance.AxeT2)
+        {
+            SwordT1Border.enabled = false;
+            SwordT2Border.enabled = false;
+            SwordT3Border.enabled = false;
+            AxeT1Border.enabled = false;
+            AxeT2Border.enabled = true;
+            AxeT3Border.enabled = false;
+            SpearT1Border.enabled = false;
+            SpearT2Border.enabled = false;
+            SpearT3Border.enabled = false;
+        }
+        if (GameManager.Instance.AxeT3)
+        {
+            SwordT1Border.enabled = false;
+            SwordT2Border.enabled = false;
+            SwordT3Border.enabled = false;
+            AxeT1Border.enabled = false;
+            AxeT2Border.enabled = false;
+            AxeT3Border.enabled = true;
+            SpearT1Border.enabled = false;
+            SpearT2Border.enabled = false;
+            SpearT3Border.enabled = false;
+        }
+        if (GameManager.Instance.SpearT1)
+        {
+            SwordT1Border.enabled = false;
+            SwordT2Border.enabled = false;
+            SwordT3Border.enabled = false;
+            AxeT1Border.enabled = false;
+            AxeT2Border.enabled = false;
+            AxeT3Border.enabled = false;
+            SpearT1Border.enabled = true;
+            SpearT2Border.enabled = false;
+            SpearT3Border.enabled = false;
+        }
+        if (GameManager.Instance.SpearT2)
+        {
+            SwordT1Border.enabled = false;
+            SwordT2Border.enabled = false;
+            SwordT3Border.enabled = false;
+            AxeT1Border.enabled = false;
+            AxeT2Border.enabled = false;
+            AxeT3Border.enabled = false;
+            SpearT1Border.enabled = false;
+            SpearT2Border.enabled = true;
+            SpearT3Border.enabled = false;
+        }
+        if (GameManager.Instance.SpearT3)
+        {
+            SwordT1Border.enabled = false;
+            SwordT2Border.enabled = false;
+            SwordT3Border.enabled = false;
+            AxeT1Border.enabled = false;
+            AxeT2Border.enabled = false;
+            AxeT3Border.enabled = false;
+            SpearT1Border.enabled = false;
+            SpearT2Border.enabled = false;
+            SpearT3Border.enabled = true;
+        }
+
+        // Defensive Borders
+        if (GameManager.Instance.ClothT1)
+        {
+            ClothT1Border.enabled = true;
+            ClothT2Border.enabled = false;
+            ClothT3Border.enabled = false;
+            LeatherT1Border.enabled = false;
+            LeatherT2Border.enabled = false;
+            LeatherT3Border.enabled = false;
+            PlateT1Border.enabled = false;
+            PlateT2Border.enabled = false;
+            PlateT3Border.enabled = false;
+        }
+        if (GameManager.Instance.ClothT2)
+        {
+            ClothT1Border.enabled = false;
+            ClothT2Border.enabled = true;
+            ClothT3Border.enabled = false;
+            LeatherT1Border.enabled = false;
+            LeatherT2Border.enabled = false;
+            LeatherT3Border.enabled = false;
+            PlateT1Border.enabled = false;
+            PlateT2Border.enabled = false;
+            PlateT3Border.enabled = false;
+        }
+        if (GameManager.Instance.ClothT3)
+        {
+            ClothT1Border.enabled = false;
+            ClothT2Border.enabled = false;
+            ClothT3Border.enabled = true;
+            LeatherT1Border.enabled = false;
+            LeatherT2Border.enabled = false;
+            LeatherT3Border.enabled = false;
+            PlateT1Border.enabled = false;
+            PlateT2Border.enabled = false;
+            PlateT3Border.enabled = false;
+        }
+        if (GameManager.Instance.LeatherT1)
+        {
+            ClothT1Border.enabled = false;
+            ClothT2Border.enabled = false;
+            ClothT3Border.enabled = false;
+            LeatherT1Border.enabled = true;
+            LeatherT2Border.enabled = false;
+            LeatherT3Border.enabled = false;
+            PlateT1Border.enabled = false;
+            PlateT2Border.enabled = false;
+            PlateT3Border.enabled = false;
+        }
+        if (GameManager.Instance.LeatherT2)
+        {
+            ClothT1Border.enabled = false;
+            ClothT2Border.enabled = false;
+            ClothT3Border.enabled = false;
+            LeatherT1Border.enabled = false;
+            LeatherT2Border.enabled = true;
+            LeatherT3Border.enabled = false;
+            PlateT1Border.enabled = false;
+            PlateT2Border.enabled = false;
+            PlateT3Border.enabled = false;
+        }
+        if (GameManager.Instance.LeatherT3)
+        {
+            ClothT1Border.enabled = false;
+            ClothT2Border.enabled = false;
+            ClothT3Border.enabled = false;
+            LeatherT1Border.enabled = false;
+            LeatherT2Border.enabled = false;
+            LeatherT3Border.enabled = true;
+            PlateT1Border.enabled = false;
+            PlateT2Border.enabled = false;
+            PlateT3Border.enabled = false;
+        }
+        if (GameManager.Instance.PlateT1)
+        {
+            ClothT1Border.enabled = false;
+            ClothT2Border.enabled = false;
+            ClothT3Border.enabled = false;
+            LeatherT1Border.enabled = false;
+            LeatherT2Border.enabled = false;
+            LeatherT3Border.enabled = false;
+            PlateT1Border.enabled = true;
+            PlateT2Border.enabled = false;
+            PlateT3Border.enabled = false;
+        }
+        if (GameManager.Instance.PlateT2)
+        {
+            ClothT1Border.enabled = false;
+            ClothT2Border.enabled = false;
+            ClothT3Border.enabled = false;
+            LeatherT1Border.enabled = false;
+            LeatherT2Border.enabled = false;
+            LeatherT3Border.enabled = false;
+            PlateT1Border.enabled = false;
+            PlateT2Border.enabled = true;
+            PlateT3Border.enabled = false;
+        }
+        if (GameManager.Instance.PlateT3)
+        {
+            ClothT1Border.enabled = false;
+            ClothT2Border.enabled = false;
+            ClothT3Border.enabled = false;
+            LeatherT1Border.enabled = false;
+            LeatherT2Border.enabled = false;
+            LeatherT3Border.enabled = false;
+            PlateT1Border.enabled = false;
+            PlateT2Border.enabled = false;
+            PlateT3Border.enabled = true;
+        }
+
+        // Consumable Borders
+        if (GameManager.Instance.HealingT1)
+        {
+            HealingT1Border.enabled = true;
+            HealingT2Border.enabled = false;
+            HealingT3Border.enabled = false;
+        }
+        if (GameManager.Instance.HealingT2)
+        {
+            HealingT1Border.enabled = false;
+            HealingT2Border.enabled = true;
+            HealingT3Border.enabled = false;
+        }
+        if (GameManager.Instance.HealingT3)
+        {
+            HealingT1Border.enabled = false;
+            HealingT2Border.enabled = false;
+            HealingT3Border.enabled = true;
+        }
+    }
+
 }

@@ -329,6 +329,7 @@ public class Inventory : MonoBehaviour
             if (!GameManager.Instance.hasSwordT1) // if player doesn't have a copy of this card
             {
                 GameManager.Instance.hasSwordT1 = true; // set card status as collected
+                GameManager.Instance.addSwordT1 = 1;
             }
             GameManager.Instance.totalCoins -= 100; // subtract coin cost
             menu.updateInventory(); // update inventory statuses
@@ -354,6 +355,7 @@ public class Inventory : MonoBehaviour
             if (!GameManager.Instance.hasSwordT2)
             {
                 GameManager.Instance.hasSwordT2 = true;
+                GameManager.Instance.addSwordT2 = 1;
             }
             GameManager.Instance.totalCoins -= 200;
             GameManager.Instance.numSwordT1 -= 2;
@@ -362,6 +364,11 @@ public class Inventory : MonoBehaviour
                 GameManager.Instance.hasSwordT1 = false;
                 //GameManager.Instance.offensiveCardsCollected--;
                 GameManager.Instance.addSwordT1 = 0;
+                if (GameManager.Instance.SwordT1)
+                {
+                    GameManager.Instance.SwordT1 = false;
+                    GameManager.Instance.SwordT2 = true;
+                }
             }
             menu.updateInventory();
             updateCardValues();
@@ -377,13 +384,20 @@ public class Inventory : MonoBehaviour
             if (!GameManager.Instance.hasSwordT3)
             {
                 GameManager.Instance.hasSwordT3 = true;
+                GameManager.Instance.addSwordT3 = 1;
             }
             GameManager.Instance.totalCoins -= 300;
             GameManager.Instance.numSwordT2 -= 2;
             if(GameManager.Instance.numSwordT2 == 0)
             {
                 GameManager.Instance.hasSwordT2 = false;
-                GameManager.Instance.offensiveCardsCollected--;
+                //GameManager.Instance.offensiveCardsCollected--;
+                GameManager.Instance.addSwordT2 = 0;
+                if (GameManager.Instance.SwordT2)
+                {
+                    GameManager.Instance.SwordT2 = false;
+                    GameManager.Instance.SwordT3 = true;
+                }
             }
             menu.updateInventory();
             updateCardValues();
@@ -399,6 +413,7 @@ public class Inventory : MonoBehaviour
             if (!GameManager.Instance.hasAxeT1)
             {
                 GameManager.Instance.hasAxeT1 = true;
+                GameManager.Instance.addAxeT1 = 1;
             }
             GameManager.Instance.totalCoins -= 100;
             menu.updateInventory();
@@ -415,6 +430,7 @@ public class Inventory : MonoBehaviour
             if (!GameManager.Instance.hasAxeT2)
             {
                 GameManager.Instance.hasAxeT2 = true;
+                GameManager.Instance.addAxeT2 = 1;
             }
             GameManager.Instance.totalCoins -= 200;
             GameManager.Instance.numAxeT1 -= 2;
@@ -423,6 +439,11 @@ public class Inventory : MonoBehaviour
                 GameManager.Instance.addAxeT2 = 0;
                 GameManager.Instance.hasAxeT1 = false;
                 //GameManager.Instance.offensiveCardsCollected--;
+                if (GameManager.Instance.AxeT1)
+                {
+                    GameManager.Instance.AxeT1 = false;
+                    GameManager.Instance.AxeT2 = true;
+                }
             }
             menu.updateInventory();
             updateCardValues();
@@ -438,13 +459,20 @@ public class Inventory : MonoBehaviour
             if (!GameManager.Instance.hasAxeT3)
             {
                 GameManager.Instance.hasAxeT3 = true;
+                GameManager.Instance.addAxeT3 = 1;
             }
             GameManager.Instance.totalCoins -= 300;
             GameManager.Instance.numAxeT2 -= 2;
             if (GameManager.Instance.numAxeT2 == 0)
             {
                 GameManager.Instance.hasAxeT2 = false;
-                GameManager.Instance.offensiveCardsCollected--;
+                GameManager.Instance.addAxeT2 = 0;
+                //GameManager.Instance.offensiveCardsCollected--;
+                if (GameManager.Instance.AxeT2)
+                {
+                    GameManager.Instance.AxeT2 = false;
+                    GameManager.Instance.AxeT3 = true;
+                }
             }
             menu.updateInventory();
             updateCardValues();
@@ -460,6 +488,7 @@ public class Inventory : MonoBehaviour
             if (!GameManager.Instance.hasSpearT1)
             {
                 GameManager.Instance.hasSpearT1 = true;
+                GameManager.Instance.addSpearT1 = 1;
             }
             GameManager.Instance.totalCoins -= 100;
             menu.updateInventory();
@@ -476,13 +505,20 @@ public class Inventory : MonoBehaviour
             if (!GameManager.Instance.hasSpearT2)
             {
                 GameManager.Instance.hasSpearT2 = true;
+                GameManager.Instance.addSpearT2 = 1;
             }
             GameManager.Instance.totalCoins -= 200;
             GameManager.Instance.numSpearT1 -= 2;
             if (GameManager.Instance.numSpearT1 == 0)
             {
                 GameManager.Instance.hasSpearT1 = false;
-                GameManager.Instance.offensiveCardsCollected--;
+                GameManager.Instance.addSpearT1 = 0;
+                //GameManager.Instance.offensiveCardsCollected--;
+                if (GameManager.Instance.SpearT1)
+                {
+                    GameManager.Instance.SpearT1 = false;
+                    GameManager.Instance.SpearT2 = true;
+                }
             }
             menu.updateInventory();
             updateCardValues();
@@ -498,13 +534,20 @@ public class Inventory : MonoBehaviour
             if (!GameManager.Instance.hasSpearT3)
             {
                 GameManager.Instance.hasSpearT3 = true;
+                GameManager.Instance.addSpearT3 = 1;
             }
             GameManager.Instance.totalCoins -= 300;
             GameManager.Instance.numSpearT2 -= 2;
             if (GameManager.Instance.numSpearT2 == 0)
             {
                 GameManager.Instance.hasSpearT2 = false;
-                GameManager.Instance.offensiveCardsCollected--;
+                GameManager.Instance.addSpearT2 = 0;
+                //GameManager.Instance.offensiveCardsCollected--;
+                if (GameManager.Instance.SpearT2)
+                {
+                    GameManager.Instance.SpearT2 = false;
+                    GameManager.Instance.SpearT3 = true;
+                }
             }
             menu.updateInventory();
             updateCardValues();
@@ -520,7 +563,8 @@ public class Inventory : MonoBehaviour
             GameManager.Instance.numClothT1++; // add one to tier 1 sword count
             if (!GameManager.Instance.hasClothT1) // if player doesn't have a copy of this card
             {
-                GameManager.Instance.hasSwordT1 = true; // set card status as collected
+                GameManager.Instance.hasClothT1 = true; // set card status as collected
+                GameManager.Instance.addClothT1 = 1; // Count ClothT1 towards total defensive cards collected
             }
             GameManager.Instance.totalCoins -= 100; // subtract coin cost
             menu.updateInventory(); // update inventory statuses
@@ -537,13 +581,20 @@ public class Inventory : MonoBehaviour
             if (!GameManager.Instance.hasClothT2)
             {
                 GameManager.Instance.hasClothT2 = true;
+                GameManager.Instance.addClothT2 = 1;
             }
             GameManager.Instance.totalCoins -= 200;
             GameManager.Instance.numClothT1 -= 2;
             if (GameManager.Instance.numClothT1 == 0)
             {
                 GameManager.Instance.hasClothT1 = false;
-                GameManager.Instance.defensiveCardsCollected--;
+                GameManager.Instance.addClothT1 = 0;
+                //GameManager.Instance.defensiveCardsCollected--;
+                if (GameManager.Instance.ClothT1)
+                {
+                    GameManager.Instance.ClothT1 = false;
+                    GameManager.Instance.ClothT2 = true;
+                }
             }
             menu.updateInventory();
             updateCardValues();
@@ -559,13 +610,20 @@ public class Inventory : MonoBehaviour
             if (!GameManager.Instance.hasClothT3)
             {
                 GameManager.Instance.hasClothT3 = true;
+                GameManager.Instance.addClothT3 = 1;
             }
             GameManager.Instance.totalCoins -= 300;
             GameManager.Instance.numClothT2 -= 2;
             if (GameManager.Instance.numClothT2 == 0)
             {
                 GameManager.Instance.hasClothT2 = false;
-                GameManager.Instance.defensiveCardsCollected--;
+                GameManager.Instance.addClothT2 = 0;
+                //GameManager.Instance.defensiveCardsCollected--;
+                if (GameManager.Instance.ClothT2)
+                {
+                    GameManager.Instance.ClothT2 = false;
+                    GameManager.Instance.ClothT3 = true;
+                }
             }
             menu.updateInventory();
             updateCardValues();
@@ -581,6 +639,7 @@ public class Inventory : MonoBehaviour
             if (!GameManager.Instance.hasLeatherT1) // if player doesn't have a copy of this card
             {
                 GameManager.Instance.hasLeatherT1 = true; // set card status as collected
+                GameManager.Instance.addLeatherT1 = 1;
             }
             GameManager.Instance.totalCoins -= 100; // subtract coin cost
             menu.updateInventory(); // update inventory statuses
@@ -597,13 +656,20 @@ public class Inventory : MonoBehaviour
             if (!GameManager.Instance.hasLeatherT2)
             {
                 GameManager.Instance.hasLeatherT2 = true;
+                GameManager.Instance.addLeatherT2 = 1;
             }
             GameManager.Instance.totalCoins -= 200;
             GameManager.Instance.numLeatherT1 -= 2;
             if (GameManager.Instance.numLeatherT1 == 0)
             {
                 GameManager.Instance.hasLeatherT1 = false;
-                GameManager.Instance.defensiveCardsCollected--;
+                GameManager.Instance.addLeatherT1 = 0;
+                //GameManager.Instance.defensiveCardsCollected--;
+                if (GameManager.Instance.LeatherT1)
+                {
+                    GameManager.Instance.LeatherT1 = false;
+                    GameManager.Instance.LeatherT2 = true;
+                }
             }
             menu.updateInventory();
             updateCardValues();
@@ -619,13 +685,20 @@ public class Inventory : MonoBehaviour
             if (!GameManager.Instance.hasLeatherT3)
             {
                 GameManager.Instance.hasLeatherT3 = true;
+                GameManager.Instance.addLeatherT3 = 1;
             }
             GameManager.Instance.totalCoins -= 300;
             GameManager.Instance.numLeatherT2 -= 2;
             if (GameManager.Instance.numLeatherT2 == 0)
             {
                 GameManager.Instance.hasLeatherT2 = false;
-                GameManager.Instance.defensiveCardsCollected--;
+                GameManager.Instance.addLeatherT2 = 0;
+                //GameManager.Instance.defensiveCardsCollected--;
+                if (GameManager.Instance.LeatherT2)
+                {
+                    GameManager.Instance.LeatherT2 = false;
+                    GameManager.Instance.LeatherT3 = true;
+                }
             }
             menu.updateInventory();
             updateCardValues();
@@ -641,6 +714,7 @@ public class Inventory : MonoBehaviour
             if (!GameManager.Instance.hasPlateT1) // if player doesn't have a copy of this card
             {
                 GameManager.Instance.hasPlateT1 = true; // set card status as collected
+                GameManager.Instance.addPlateT1 = 1;
             }
             GameManager.Instance.totalCoins -= 100; // subtract coin cost
             menu.updateInventory(); // update inventory statuses
@@ -657,13 +731,20 @@ public class Inventory : MonoBehaviour
             if (!GameManager.Instance.hasPlateT2)
             {
                 GameManager.Instance.hasPlateT2 = true;
+                GameManager.Instance.addPlateT2 = 1;
             }
             GameManager.Instance.totalCoins -= 200;
             GameManager.Instance.numPlateT1 -= 2;
             if (GameManager.Instance.numPlateT1 == 0)
             {
                 GameManager.Instance.hasPlateT1 = false;
-                GameManager.Instance.defensiveCardsCollected--;
+                GameManager.Instance.addPlateT1 = 0;
+                //GameManager.Instance.defensiveCardsCollected--;
+                if (GameManager.Instance.PlateT1)
+                {
+                    GameManager.Instance.PlateT1 = false;
+                    GameManager.Instance.PlateT2 = true;
+                }
             }
             menu.updateInventory();
             updateCardValues();
@@ -679,13 +760,20 @@ public class Inventory : MonoBehaviour
             if (!GameManager.Instance.hasPlateT3)
             {
                 GameManager.Instance.hasPlateT3 = true;
+                GameManager.Instance.addPlateT3 = 1;
             }
             GameManager.Instance.totalCoins -= 300;
             GameManager.Instance.numPlateT2 -= 2;
             if (GameManager.Instance.numPlateT2 == 0)
             {
                 GameManager.Instance.hasPlateT2 = false;
-                GameManager.Instance.defensiveCardsCollected--;
+                GameManager.Instance.addPlateT2 = 0;
+                //GameManager.Instance.defensiveCardsCollected--;
+                if (GameManager.Instance.PlateT2)
+                {
+                    GameManager.Instance.PlateT2 = false;
+                    GameManager.Instance.PlateT3 = true;
+                }
             }
             menu.updateInventory();
             updateCardValues();
@@ -701,6 +789,7 @@ public class Inventory : MonoBehaviour
             if (!GameManager.Instance.hasHealingT1) // if player doesn't have a copy of this card
             {
                 GameManager.Instance.hasHealingT1 = true; // set card status as collected
+                GameManager.Instance.addHealingT1 = 1;
             }
             GameManager.Instance.totalCoins -= 100; // subtract coin cost
             menu.updateInventory(); // update inventory statuses
@@ -717,13 +806,20 @@ public class Inventory : MonoBehaviour
             if (!GameManager.Instance.hasHealingT2)
             {
                 GameManager.Instance.hasHealingT2 = true;
+                GameManager.Instance.addHealingT2 = 1;
             }
             GameManager.Instance.totalCoins -= 200;
             GameManager.Instance.numHealingT1 -= 2;
             if (GameManager.Instance.numHealingT1 == 0)
             {
                 GameManager.Instance.hasHealingT1 = false;
-                GameManager.Instance.consumableCardsCollected--;
+                GameManager.Instance.addHealingT1 = 0;
+                //GameManager.Instance.consumableCardsCollected--;
+                if (GameManager.Instance.HealingT1)
+                {
+                    GameManager.Instance.HealingT1 = false;
+                    GameManager.Instance.HealingT2 = true;
+                }
             }
             menu.updateInventory();
             updateCardValues();
@@ -739,13 +835,20 @@ public class Inventory : MonoBehaviour
             if (!GameManager.Instance.hasHealingT3)
             {
                 GameManager.Instance.hasHealingT3 = true;
+                GameManager.Instance.addHealingT3 = 1;
             }
             GameManager.Instance.totalCoins -= 300;
             GameManager.Instance.numHealingT2 -= 2;
             if (GameManager.Instance.numHealingT2 == 0)
             {
                 GameManager.Instance.hasHealingT2 = false;
-                GameManager.Instance.consumableCardsCollected--;
+                GameManager.Instance.addHealingT2 = 0;
+                //GameManager.Instance.consumableCardsCollected--;
+                if (GameManager.Instance.HealingT2)
+                {
+                    GameManager.Instance.HealingT2 = false;
+                    GameManager.Instance.HealingT3 = true;
+                }
             }
             menu.updateInventory();
             updateCardValues();

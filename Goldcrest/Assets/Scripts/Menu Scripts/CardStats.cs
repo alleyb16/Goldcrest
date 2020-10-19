@@ -21,6 +21,7 @@ public class CardStats : MonoBehaviour
     void checkStatUpdate() // Applies stats for all active cards
     {
         // OFFENSIVE STATS
+        #region
         if (GameManager.Instance.SwordT1) //  Stats for Sword tier 1
         {
             GameManager.Instance.SwordT2 = false;
@@ -166,8 +167,10 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.weaponRange = 3f;
             GameManager.Instance.weaponKnockback = 30;
         }
+        #endregion
 
         // DEFENSIVE STATS
+        #region
         if (GameManager.Instance.ClothT1) // Stats for Cloth tier 1
         {
             GameManager.Instance.ClothT2 = false;
@@ -180,7 +183,7 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.PlateT3 = false;
 
             GameManager.Instance.playerMaxHealth = 115;
-            GameManager.Instance.moveSpeed = 65/10;
+            GameManager.Instance.moveSpeed = 6.5f;
             GameManager.Instance.dodgeForce = 50*5;
         }
         if (GameManager.Instance.ClothT2) // Stats for Cloth tier 2
@@ -195,7 +198,7 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.PlateT3 = false;
 
             GameManager.Instance.playerMaxHealth = 120;
-            GameManager.Instance.moveSpeed = 80/10;
+            GameManager.Instance.moveSpeed = 7f;
             GameManager.Instance.dodgeForce = 60*5;
         }
         if (GameManager.Instance.ClothT3) // Stats for Cloth tier 3
@@ -210,8 +213,8 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.PlateT3 = false;
 
             GameManager.Instance.playerMaxHealth = 125;
-            GameManager.Instance.moveSpeed = 100/10;
-            GameManager.Instance.dodgeForce = 90*5;
+            GameManager.Instance.moveSpeed = 7.5f;
+            GameManager.Instance.dodgeForce = 70*5;
         }
         if (GameManager.Instance.LeatherT1) // Stats for Leather tier 1
         {
@@ -225,8 +228,8 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.PlateT3 = false;
 
             GameManager.Instance.playerMaxHealth = 125;
-            GameManager.Instance.moveSpeed = 40/10;
-            GameManager.Instance.dodgeForce = 30*5;
+            GameManager.Instance.moveSpeed = 4.5f;
+            GameManager.Instance.dodgeForce = 45*5;
         }
         if (GameManager.Instance.LeatherT2) // Stats for Leather tier 2
         {
@@ -240,8 +243,8 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.PlateT3 = false;
 
             GameManager.Instance.playerMaxHealth = 135;
-            GameManager.Instance.moveSpeed = 50/10;
-            GameManager.Instance.dodgeForce = 40*5;
+            GameManager.Instance.moveSpeed = 5;
+            GameManager.Instance.dodgeForce = 50*5;
         }
         if (GameManager.Instance.LeatherT3) // Stats for Leather tier 3
         {
@@ -255,8 +258,8 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.PlateT3 = false;
 
             GameManager.Instance.playerMaxHealth = 150;
-            GameManager.Instance.moveSpeed = 60/10;
-            GameManager.Instance.dodgeForce = 50*5;
+            GameManager.Instance.moveSpeed = 6;
+            GameManager.Instance.dodgeForce = 55*5;
         }
         if (GameManager.Instance.PlateT1) //Stats for Plate tier 1
         {
@@ -270,8 +273,8 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.PlateT3 = false;
 
             GameManager.Instance.playerMaxHealth = 150;
-            GameManager.Instance.moveSpeed = 15/10;
-            GameManager.Instance.dodgeForce = 5*5;
+            GameManager.Instance.moveSpeed = 4;
+            GameManager.Instance.dodgeForce = 40*5;
         }
         if (GameManager.Instance.PlateT2) //Stats for Plate tier 2
         {
@@ -285,8 +288,8 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.PlateT3 = false;
 
             GameManager.Instance.playerMaxHealth = 175;
-            GameManager.Instance.moveSpeed = 20/10;
-            GameManager.Instance.dodgeForce = 10*5;
+            GameManager.Instance.moveSpeed = 4.5f;
+            GameManager.Instance.dodgeForce = 45*5;
         }
         if (GameManager.Instance.PlateT3) //Stats for Plate tier 3
         {
@@ -300,11 +303,13 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.PlateT2 = false;
 
             GameManager.Instance.playerMaxHealth = 200;
-            GameManager.Instance.moveSpeed = 25/10;
-            GameManager.Instance.dodgeForce = 15*5;
+            GameManager.Instance.moveSpeed = 5;
+            GameManager.Instance.dodgeForce = 50*5;
         }
+        #endregion
 
         // CONSUMABLE CARDS
+        #region
         if (GameManager.Instance.HealingT1) // stats for healing tier 1
         {
             GameManager.Instance.HealingT2 = false;
@@ -334,10 +339,11 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.consumableCooldown = 3f;
             GameManager.Instance.healingDone = 75;
         }
-
+        #endregion
     }
 
     // ACTIVATE OFFENSIVE CARDS
+    #region
     public void activateSwordT1() // sets Sword tier 1 active
     {
         if (GameManager.Instance.hasSwordT1)
@@ -473,8 +479,10 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.SpearT3 = true;
         }
     }
+    #endregion
 
     // ACTIVATE DEFENSIVE CARDS
+    #region
     public void activateClothT1() // sets cloth tier 1 active
     {
         if (GameManager.Instance.hasClothT1)
@@ -610,8 +618,10 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.PlateT3 = true;
         }
     }
+    #endregion
 
     // ACTIVATE CONSUMABLE CARDS
+    #region
     public void activateHealingT1() // sets healing tier 1 active
     {
         if (GameManager.Instance.hasHealingT1)
@@ -639,4 +649,5 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.HealingT3 = true;
         }
     }
+    #endregion
 }

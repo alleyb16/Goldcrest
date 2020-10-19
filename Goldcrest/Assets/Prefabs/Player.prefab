@@ -1655,6 +1655,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63316c64dd644874b80ae00f77da8b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playercombat: {fileID: 0}
+  joystick: {fileID: 0}
+  dodgeReady: 1
+  moveSpeed: 5
+  cooldownIMG: {fileID: 0}
   rb: {fileID: 0}
   cam: {fileID: 0}
 --- !u!114 &355380534987923989
