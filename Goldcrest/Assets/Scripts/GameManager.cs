@@ -29,11 +29,13 @@ public class GameManager : MonoBehaviour
     public int coinsCollected;
 
     public int levelsCompleted = 0;
+    public bool level0Completed;
     public bool level1Completed;
     public bool level2Completed;
     public bool level3Completed;
     public bool level4Completed;
 
+    public int lvl0Stars = 0;
     public int lvl1Stars = 0;
     public int lvl2Stars = 0;
     public int lvl3Stars = 0;
@@ -45,10 +47,27 @@ public class GameManager : MonoBehaviour
 
     //Level scores
     public int currentScore;
+    public int level0Score = 0;
     public int level1Score = 0;
+    public int level2Score = 0;
+    public int level3Score = 0;
+    public int level4Score = 0;
+
+    public float lvl0Rating = 0;
     public float lvl1Rating = 0;
+    public float lvl2Rating = 0;
+    public float lvl3Rating = 0;
+    public float lvl4Rating = 0;
 
     public bool lvl2Unlocked = false;
+    public bool lvl3Unlocked = false;
+    public bool lvl4Unlocked = false;
+
+    public bool inLevel1 = false;
+    public bool inLevel2 = false;
+    public bool inLevel3 = false;
+    public bool inLevel4 = false;
+    public bool inDemo = false;
 
 
     // Unlocked Cards
@@ -204,6 +223,8 @@ public class GameManager : MonoBehaviour
 
     public bool hasKey = false;
 
+    public bool bossDead = false;
+
     // Invuln state
     public bool invuln = false;
 
@@ -221,10 +242,31 @@ public class GameManager : MonoBehaviour
         coinsCollected = 0;
     }
 
+    public void level0Rating()
+    {
+        lvl0Rating = level0Score / 700f * 100f;
+    }
+
     public void level1Rating()
     {
-        lvl1Rating = level1Score / 500f * 100f;
+        lvl1Rating = Mathf.Round(level1Score / 1200f * 100f);
     }
+    
+    public void level2Rating()
+    {
+        lvl2Rating = level2Score / 1500f * 100f;
+    }
+
+    public void level3Rating()
+    {
+        lvl3Rating = level3Score / 1500f * 100f;
+    }
+
+    public void level4Rating()
+    {
+        lvl4Rating = level4Score / 500f * 100f;
+    }
+    
 
     public void SaveGame()
     {
@@ -254,8 +296,16 @@ public class GameManager : MonoBehaviour
 
         level1Score = data.level1Score;
         lvl1Rating = data.lvl1Rating;
+        level2Score = data.level2Score;
+        lvl2Rating = data.lvl2Rating;
+        level3Score = data.level3Score;
+        lvl3Rating = data.lvl3Rating;
+        level4Score = data.level4Score;
+        lvl4Rating = data.lvl4Rating;
 
         lvl2Unlocked = data.lvl2Unlocked;
+        lvl3Unlocked = data.lvl3Unlocked;
+        lvl4Unlocked = data.lvl4Unlocked;
 
         // card data
         hasSwordT1 = data.hasSwordT1;

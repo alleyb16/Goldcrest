@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class GearSwap : MonoBehaviour
 {
-    public GameObject sword;
-    public GameObject axe;
-    public GameObject spear;
+    public GameObject swordT1;
+    public GameObject swordT2;
+    public GameObject swordT3;
+    public GameObject axeT1;
+    public GameObject axeT2;
+    public GameObject axeT3;
+    public GameObject spearT1;
+    public GameObject spearT2;
+    public GameObject spearT3;
 
     public GameObject clothT1;
     public GameObject clothT2;
@@ -32,26 +38,116 @@ public class GearSwap : MonoBehaviour
 
     public void equipGear() // Changes visual representation of equipped items in game
     {
-        if (GameManager.Instance.SwordT1 || GameManager.Instance.SwordT2 || GameManager.Instance.SwordT3)
+        if (GameManager.Instance.SwordT1) // WEAPONS
         {
-            sword.SetActive(true);
-            axe.SetActive(false);
-            spear.SetActive(false);
+            swordT1.SetActive(true);
+            swordT2.SetActive(false);
+            swordT3.SetActive(false);
+            axeT1.SetActive(false);
+            axeT2.SetActive(false);
+            axeT3.SetActive(false);
+            spearT1.SetActive(false);
+            spearT2.SetActive(false);
+            spearT3.SetActive(false);
         }
-        if (GameManager.Instance.AxeT1 || GameManager.Instance.AxeT2 || GameManager.Instance.AxeT3)
+        if (GameManager.Instance.SwordT2)
         {
-            sword.SetActive(false);
-            axe.SetActive(true);
-            spear.SetActive(false);
+            swordT1.SetActive(false);
+            swordT2.SetActive(true);
+            swordT3.SetActive(false);
+            axeT1.SetActive(false);
+            axeT2.SetActive(false);
+            axeT3.SetActive(false);
+            spearT1.SetActive(false);
+            spearT2.SetActive(false);
+            spearT3.SetActive(false);
         }
-        if (GameManager.Instance.SpearT1 || GameManager.Instance.SpearT2 || GameManager.Instance.SpearT3)
+        if (GameManager.Instance.SwordT3)
         {
-            sword.SetActive(false);
-            axe.SetActive(false);
-            spear.SetActive(true);
+            swordT1.SetActive(false);
+            swordT2.SetActive(false);
+            swordT3.SetActive(true);
+            axeT1.SetActive(false);
+            axeT2.SetActive(false);
+            axeT3.SetActive(false);
+            spearT1.SetActive(false);
+            spearT2.SetActive(false);
+            spearT3.SetActive(false);
+        }
+        if (GameManager.Instance.AxeT1)
+        {
+            swordT1.SetActive(false);
+            swordT2.SetActive(false);
+            swordT3.SetActive(false);
+            axeT1.SetActive(true);
+            axeT2.SetActive(false);
+            axeT3.SetActive(false);
+            spearT1.SetActive(false);
+            spearT2.SetActive(false);
+            spearT3.SetActive(false);
+        }
+        if (GameManager.Instance.AxeT2)
+        {
+            swordT1.SetActive(false);
+            swordT2.SetActive(false);
+            swordT3.SetActive(false);
+            axeT1.SetActive(false);
+            axeT2.SetActive(true);
+            axeT3.SetActive(false);
+            spearT1.SetActive(false);
+            spearT2.SetActive(false);
+            spearT3.SetActive(false);
+        }
+        if (GameManager.Instance.AxeT3)
+        {
+            swordT1.SetActive(false);
+            swordT2.SetActive(false);
+            swordT3.SetActive(false);
+            axeT1.SetActive(false);
+            axeT2.SetActive(false);
+            axeT3.SetActive(true);
+            spearT1.SetActive(false);
+            spearT2.SetActive(false);
+            spearT3.SetActive(false);
+        }
+        if (GameManager.Instance.SpearT1)
+        {
+            swordT1.SetActive(false);
+            swordT2.SetActive(false);
+            swordT3.SetActive(false);
+            axeT1.SetActive(false);
+            axeT2.SetActive(false);
+            axeT3.SetActive(false);
+            spearT1.SetActive(true);
+            spearT2.SetActive(false);
+            spearT3.SetActive(false);
+        }
+        if (GameManager.Instance.SpearT2)
+        {
+            swordT1.SetActive(false);
+            swordT2.SetActive(false);
+            swordT3.SetActive(false);
+            axeT1.SetActive(false);
+            axeT2.SetActive(false);
+            axeT3.SetActive(false);
+            spearT1.SetActive(false);
+            spearT2.SetActive(true);
+            spearT3.SetActive(false);
+        }
+        if (GameManager.Instance.SpearT3)
+        {
+            swordT1.SetActive(false);
+            swordT2.SetActive(false);
+            swordT3.SetActive(false);
+            axeT1.SetActive(false);
+            axeT2.SetActive(false);
+            axeT3.SetActive(false);
+            spearT1.SetActive(false);
+            spearT2.SetActive(false);
+            spearT3.SetActive(true);
         }
 
-        if (GameManager.Instance.ClothT1)
+        if (GameManager.Instance.ClothT1) // ARMOR
         {
             clothT1.SetActive(true);
             clothT2.SetActive(false);

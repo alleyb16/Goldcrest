@@ -335,6 +335,7 @@ public class Inventory : MonoBehaviour
             menu.updateInventory(); // update inventory statuses
             updateCardValues();
             revealCards();
+            FindObjectOfType<AudioManager>().Play("Purchase");
         }
     }
 
@@ -373,6 +374,7 @@ public class Inventory : MonoBehaviour
             menu.updateInventory();
             updateCardValues();
             revealCards();
+            FindObjectOfType<AudioManager>().Play("Purchase");
         }
     }
 
@@ -402,6 +404,7 @@ public class Inventory : MonoBehaviour
             menu.updateInventory();
             updateCardValues();
             revealCards();
+            FindObjectOfType<AudioManager>().Play("Purchase");
         }
     }
 
@@ -419,6 +422,7 @@ public class Inventory : MonoBehaviour
             menu.updateInventory();
             updateCardValues();
             revealCards();
+            FindObjectOfType<AudioManager>().Play("Purchase");
         }
     }
 
@@ -448,6 +452,7 @@ public class Inventory : MonoBehaviour
             menu.updateInventory();
             updateCardValues();
             revealCards();
+            FindObjectOfType<AudioManager>().Play("Purchase");
         }
     }
 
@@ -477,6 +482,7 @@ public class Inventory : MonoBehaviour
             menu.updateInventory();
             updateCardValues();
             revealCards();
+            FindObjectOfType<AudioManager>().Play("Purchase");
         }
     }
 
@@ -494,6 +500,7 @@ public class Inventory : MonoBehaviour
             menu.updateInventory();
             updateCardValues();
             revealCards();
+            FindObjectOfType<AudioManager>().Play("Purchase");
         }
     }
 
@@ -523,6 +530,7 @@ public class Inventory : MonoBehaviour
             menu.updateInventory();
             updateCardValues();
             revealCards();
+            FindObjectOfType<AudioManager>().Play("Purchase");
         }
     }
 
@@ -552,6 +560,7 @@ public class Inventory : MonoBehaviour
             menu.updateInventory();
             updateCardValues();
             revealCards();
+            FindObjectOfType<AudioManager>().Play("Purchase");
         }
     }
 
@@ -570,6 +579,7 @@ public class Inventory : MonoBehaviour
             menu.updateInventory(); // update inventory statuses
             updateCardValues();
             revealCards();
+            FindObjectOfType<AudioManager>().Play("Purchase");
         }
     }
 
@@ -599,6 +609,7 @@ public class Inventory : MonoBehaviour
             menu.updateInventory();
             updateCardValues();
             revealCards();
+            FindObjectOfType<AudioManager>().Play("Purchase");
         }
     }
 
@@ -628,6 +639,7 @@ public class Inventory : MonoBehaviour
             menu.updateInventory();
             updateCardValues();
             revealCards();
+            FindObjectOfType<AudioManager>().Play("Purchase");
         }
     }
 
@@ -645,6 +657,7 @@ public class Inventory : MonoBehaviour
             menu.updateInventory(); // update inventory statuses
             updateCardValues();
             revealCards();
+            FindObjectOfType<AudioManager>().Play("Purchase");
         }
     }
 
@@ -674,6 +687,7 @@ public class Inventory : MonoBehaviour
             menu.updateInventory();
             updateCardValues();
             revealCards();
+            FindObjectOfType<AudioManager>().Play("Purchase");
         }
     }
 
@@ -703,6 +717,7 @@ public class Inventory : MonoBehaviour
             menu.updateInventory();
             updateCardValues();
             revealCards();
+            FindObjectOfType<AudioManager>().Play("Purchase");
         }
     }
 
@@ -720,6 +735,7 @@ public class Inventory : MonoBehaviour
             menu.updateInventory(); // update inventory statuses
             updateCardValues();
             revealCards();
+            FindObjectOfType<AudioManager>().Play("Purchase");
         }
     }
 
@@ -749,6 +765,7 @@ public class Inventory : MonoBehaviour
             menu.updateInventory();
             updateCardValues();
             revealCards();
+            FindObjectOfType<AudioManager>().Play("Purchase");
         }
     }
 
@@ -778,6 +795,7 @@ public class Inventory : MonoBehaviour
             menu.updateInventory();
             updateCardValues();
             revealCards();
+            FindObjectOfType<AudioManager>().Play("Purchase");
         }
     }
 
@@ -795,6 +813,7 @@ public class Inventory : MonoBehaviour
             menu.updateInventory(); // update inventory statuses
             updateCardValues();
             revealCards();
+            FindObjectOfType<AudioManager>().Play("Purchase");
         }
     }
 
@@ -824,6 +843,7 @@ public class Inventory : MonoBehaviour
             menu.updateInventory();
             updateCardValues();
             revealCards();
+            FindObjectOfType<AudioManager>().Play("Purchase");
         }
     }
 
@@ -853,6 +873,7 @@ public class Inventory : MonoBehaviour
             menu.updateInventory();
             updateCardValues();
             revealCards();
+            FindObjectOfType<AudioManager>().Play("Purchase");
         }
     }
 

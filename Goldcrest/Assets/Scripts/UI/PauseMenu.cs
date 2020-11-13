@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-
     public bool gamePaused = false;
 
     // Update is called once per frame
@@ -36,5 +35,10 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         gamePaused = false;
         SceneManager.LoadScene("Scenes/Menu", LoadSceneMode.Single);
+    }
+
+    public void playClick()
+    {
+        FindObjectOfType<AudioManager>().Play("ButtonPress");
     }
 }

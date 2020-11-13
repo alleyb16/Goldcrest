@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7528231026695604180}
   m_Layer: 0
   m_Name: Fire Trigger
-  m_TagString: Untagged
+  m_TagString: Fire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,3 +57,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63814c20cecc00844922991279b7f0d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCombat: {fileID: 0}

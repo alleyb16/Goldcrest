@@ -67,18 +67,27 @@ public class PlayerCombat : MonoBehaviour
                 {
                     print("hitting Door");
                     enemy.GetComponent<DoorScript>().TakeDamage(GameManager.Instance.weaponDamage);
+                    FindObjectOfType<AudioManager>().Play("ObstacleHit"); // Play attack sound
+
                 }
-                if (enemy.tag == "Chest") // Attacking chests
+                if (enemy.tag == "Chest") // Attacking Chests
                 {
                     enemy.GetComponent<ChestScript>().TakeDamage(GameManager.Instance.weaponDamage);
+                    FindObjectOfType<AudioManager>().Play("ObstacleHit"); // Play attack sound
                 }
-                else
+                if (enemy.tag == "Log")
+                {
+                    enemy.GetComponent<DoorScript>().TakeDamage(GameManager.Instance.weaponDamage);
+                    FindObjectOfType<AudioManager>().Play("LogHit");
+                }
+
+
+                if (enemy.tag == "Enemy" || enemy.tag == "Mini Boss" || enemy.tag == "Rat" || enemy.tag == "Ranger") // attacking enemies
                 {
                     //apply damage
                     print("hit " + enemy.name);
                     enemy.GetComponent<BasicEnemy>().TakeDamage(GameManager.Instance.weaponDamage);
-
-                    //apply damage to doors
+                    FindObjectOfType<AudioManager>().Play("WeaponHit");
 
                     // ADD KNOCKBACK
                     hitDirection = enemy.transform.position - GameObject.FindWithTag("Player").transform.position; // Calculates angle between player and enemy
@@ -88,15 +97,13 @@ public class PlayerCombat : MonoBehaviour
 
                 }
             }
-            //cooldownTimer = GameManager.Instance.attackCooldown;
-            //cooldownTimer = attackCooldown;
             attackReady = false;
+            GameManager.Instance.isAttacking = false;
         }
     }
 
     private void updateCooldown()
     {
-        //cooldownPercent = cooldownTimer / GameManager.Instance.attackCooldown;
         cooldownPercent = cooldownTimer / attackCooldown;
         cooldown.fillAmount = cooldownPercent;
 

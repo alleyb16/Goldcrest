@@ -6,6 +6,13 @@ TagManager:
   tags:
   - Door
   - Chest
+  - Enemy
+  - Mini Boss
+  - Rat
+  - Ranger
+  - Log
+  - Fire
+  - Spike
   layers:
   - Default
   - TransparentFX

@@ -31,6 +31,7 @@ public class projectile : MonoBehaviour
         if (other.CompareTag("Player") && GameManager.Instance.invuln == false)
         {
             GameManager.Instance.playerHealth -= bulletDamage;
+            FindObjectOfType<AudioManager>().Play("PlayerShot");
             Destroy(gameObject);
             // KNOCKBACK ON PLAYER (DOESN'T WORK RN)
             //hitDirection = player.transform.position - transform.position; // Calculates angle between player and enemy

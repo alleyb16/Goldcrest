@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class DisplayUI : MonoBehaviour
 {
     public Level1Script LVL1;
+    public Level2Script LVL2;
+    public Level3Script LVL3;
+    public DemoLevelScript demo;
 
     public Text goldText;
     public Text timerText;
@@ -32,8 +35,24 @@ public class DisplayUI : MonoBehaviour
     void updateScores()
     {
         goldText.text = GameManager.Instance.coinsCollected.ToString();
-        timerText.text = LVL1.timeRemaining.ToString();
         scoreText.text = GameManager.Instance.currentScore.ToString();
+
+        if (GameManager.Instance.inDemo)
+        {
+            timerText.text = demo.timeRemaining.ToString();
+        }
+        if (GameManager.Instance.inLevel1)
+        {
+            timerText.text = LVL1.timeRemaining.ToString();
+        }
+        if (GameManager.Instance.inLevel2)
+        {
+            timerText.text = LVL2.timeRemaining.ToString();
+        }
+        if (GameManager.Instance.inLevel3)
+        {
+            timerText.text = LVL3.timeRemaining.ToString();
+        }
     }
 
     void updateHealth()

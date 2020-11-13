@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class OutOfBounds : MonoBehaviour
 {
-    public Level1Script levelScript;
+    public Level1Script level1Script;
+    public Level2Script level2Script;
+    public Level3Script level3Script;
+    //public Level4Script level4Script;
+    public DemoLevelScript demo;
 
     // Start is called before the first frame update
     void Start()
@@ -21,9 +25,30 @@ public class OutOfBounds : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            levelScript.gameOver = true;
-            levelScript.UI.SetActive(false);
-            levelScript.levelFail.SetActive(true); // Set level over and display fail menu
+            if (GameManager.Instance.inLevel1)
+            {
+                level1Script.gameOver = true;
+                level1Script.UI.SetActive(false);
+                level1Script.levelFail.SetActive(true); // Set level over and display fail menu
+            }
+            if (GameManager.Instance.inLevel2)
+            {
+                level2Script.gameOver = true;
+                level2Script.UI.SetActive(false);
+                level2Script.levelFail.SetActive(true);
+            }
+            if (GameManager.Instance.inLevel3)
+            {
+                level3Script.gameOver = true;
+                level3Script.UI.SetActive(false);
+                level3Script.levelFail.SetActive(true);
+            }
+            if (GameManager.Instance.inDemo)
+            {
+                demo.gameOver = true;
+                demo.UI.SetActive(false);
+                demo.levelFail.SetActive(true);
+            }
 
             Time.timeScale = 0f; //Slows speed to a pause
         }

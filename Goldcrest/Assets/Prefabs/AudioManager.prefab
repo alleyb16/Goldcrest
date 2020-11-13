@@ -1,0 +1,204 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5421446420879651441
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5421446420879651443}
+  - component: {fileID: 5421446420879651440}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5421446420879651443
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5421446420879651441}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -25.126978, y: 4.9472837, z: -9.785827}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5421446420879651440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5421446420879651441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdbe2369d5b36a34cb98407ac01e9240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 761035791562109363, guid: 3147c07823563f54f8a49ed2ec693ce7,
+    type: 2}
+  sounds:
+  - name: CoinPickup
+    clip: {fileID: 8300000, guid: 960b393056083544a87ebec77fde8046, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: WeaponHit
+    clip: {fileID: 8300000, guid: ca968fd8a9b1607499b5aa32662ee251, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: WeaponAttack
+    clip: {fileID: 8300000, guid: f489e7049a17dd448af633b2e462132a, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ObstacleHit
+    clip: {fileID: 8300000, guid: 2422c86db18db2949ae71ff8ff78c075, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ObstacleDestroyed
+    clip: {fileID: 8300000, guid: d07b97f714066fb44ae142abfe142f92, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ChestOpen
+    clip: {fileID: 8300000, guid: 1cf532f6d5ff3e640bda46c231c5b55b, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ClothRoll
+    clip: {fileID: 8300000, guid: 66f665300b201894eaaebe9a81b38553, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: LeatherSlide
+    clip: {fileID: 8300000, guid: 5580f362913e2084f87e3660c2bf1158, type: 3}
+    volume: 0.5
+    pitch: 3
+    loop: 0
+    source: {fileID: 0}
+  - name: PlateDodge
+    clip: {fileID: 8300000, guid: ad3eff5cf5926d24a88db79a5ed05cbf, type: 3}
+    volume: 0.648
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RatDeath
+    clip: {fileID: 8300000, guid: af826c188214d8b448a7541e96061d0c, type: 3}
+    volume: 0.5
+    pitch: 2
+    loop: 0
+    source: {fileID: 0}
+  - name: ShadeAttack
+    clip: {fileID: 8300000, guid: 874003843fd95b740b19776d9fefcb64, type: 3}
+    volume: 0.5
+    pitch: 0.47
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerDeath
+    clip: {fileID: 8300000, guid: f22f08fc1f967df44b4d594050ebcf04, type: 3}
+    volume: 1
+    pitch: 0.81
+    loop: 0
+    source: {fileID: 0}
+  - name: BowDraw
+    clip: {fileID: 8300000, guid: 2779f0d2e9d1c2b48a5241f356e388a3, type: 3}
+    volume: 1
+    pitch: 1.82
+    loop: 0
+    source: {fileID: 0}
+  - name: BowFire
+    clip: {fileID: 8300000, guid: 13811e57dad00ba48a85d741917ea995, type: 3}
+    volume: 1
+    pitch: 1.33
+    loop: 0
+    source: {fileID: 0}
+  - name: LogHit
+    clip: {fileID: 8300000, guid: f7190e222a3e5574aae5ee0a4ba52af6, type: 3}
+    volume: 1
+    pitch: 1.33
+    loop: 0
+    source: {fileID: 0}
+  - name: ShadeHit
+    clip: {fileID: 8300000, guid: 89e0ceddc9b4caf43924a0377de5daf0, type: 3}
+    volume: 0.688
+    pitch: 1.17
+    loop: 0
+    source: {fileID: 0}
+  - name: BruteHit
+    clip: {fileID: 8300000, guid: 4349e8f30682d154080aa29ec7f5cbb5, type: 3}
+    volume: 0.688
+    pitch: 0.55
+    loop: 0
+    source: {fileID: 0}
+  - name: BruteDeath
+    clip: {fileID: 8300000, guid: 28bff28f3f12e384ea4031ff1a967092, type: 3}
+    volume: 0.688
+    pitch: 0.55
+    loop: 0
+    source: {fileID: 0}
+  - name: Potion
+    clip: {fileID: 8300000, guid: 4426ed5c226b6224094deef82b737b4c, type: 3}
+    volume: 1
+    pitch: 0.94
+    loop: 0
+    source: {fileID: 0}
+  - name: ButtonPress
+    clip: {fileID: 8300000, guid: fc58a52594fe8fe418dff9c65c208959, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Purchase
+    clip: {fileID: 8300000, guid: d35cba24611b09a44bfc43bc1fc2c67b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Burning
+    clip: {fileID: 8300000, guid: 2b68e778e55c6134eb3d221f6fb1c36a, type: 3}
+    volume: 1
+    pitch: 2.61
+    loop: 0
+    source: {fileID: 0}
+  - name: ArcherHit
+    clip: {fileID: 8300000, guid: c68cc0cabf34a6e4cb31412ce005586b, type: 3}
+    volume: 0.56
+    pitch: 1.2
+    loop: 0
+    source: {fileID: 0}
+  - name: ArcherDeath
+    clip: {fileID: 8300000, guid: 168f21a114bdf9449b603741aa92b081, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: DoorUnlock
+    clip: {fileID: 8300000, guid: 9346db0507011d5499be3d3029946e87, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerShot
+    clip: {fileID: 8300000, guid: e03afc3702edceb47a2c3aadc149b69c, type: 3}
+    volume: 1
+    pitch: 1.26
+    loop: 0
+    source: {fileID: 0}

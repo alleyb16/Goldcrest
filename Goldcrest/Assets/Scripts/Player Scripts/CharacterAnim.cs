@@ -42,7 +42,6 @@ public class CharacterAnim : MonoBehaviour
                 {
                     randomNum = Random.Range(0, 3); // Picks a random number to play a random attack animation
 
-                    //if (GameManager.Instance.SwordT1 || GameManager.Instance.SwordT2 || GameManager.Instance.SwordT3)
                     if (randomNum == 0)
                     {
                         anim.Play("Attack"); // anim.Play runs the animation once
@@ -58,6 +57,7 @@ public class CharacterAnim : MonoBehaviour
                         anim.Play("Attack 3");
                     }
 
+                    FindObjectOfType<AudioManager>().Play("WeaponAttack"); // Play attack sound
                     GameManager.Instance.isAttacking = false;
 
                 }
@@ -73,7 +73,7 @@ public class CharacterAnim : MonoBehaviour
                     {
                         anim.Play("Yeetus 2");
                     }
-
+                    FindObjectOfType<AudioManager>().Play("WeaponAttack"); // Play attack sound
                     GameManager.Instance.isAttacking = false;
                 }
             }
@@ -98,6 +98,8 @@ public class CharacterAnim : MonoBehaviour
                     {
                         anim.Play("Attack 3");
                     }
+                    FindObjectOfType<AudioManager>().Play("WeaponAttack"); // Play attack sound
+
                     GameManager.Instance.isAttacking = false;
                 }
                 if (GameManager.Instance.isMoving || GameManager.Instance.isWalking) // moving animations for axe
@@ -112,6 +114,7 @@ public class CharacterAnim : MonoBehaviour
                     {
                         anim.Play("Yeetus 2");
                     }
+                    FindObjectOfType<AudioManager>().Play("WeaponAttack"); // Play attack sound
 
                     GameManager.Instance.isAttacking = false;
                 }
@@ -135,6 +138,7 @@ public class CharacterAnim : MonoBehaviour
                         anim.Play("Yeetus 2");
                     }
                 }
+                FindObjectOfType<AudioManager>().Play("WeaponAttack"); // Play attack sound
 
                 GameManager.Instance.isAttacking = false;
             }
@@ -145,15 +149,18 @@ public class CharacterAnim : MonoBehaviour
             if (GameManager.Instance.ClothT1 || GameManager.Instance.ClothT2 || GameManager.Instance.ClothT3)
             {
                 anim.Play("Roll");
+                FindObjectOfType<AudioManager>().Play("ClothRoll");
             }
             if (GameManager.Instance.LeatherT1 || GameManager.Instance.LeatherT2 || GameManager.Instance.LeatherT3)
             {
                 anim.Play("Slide");
+                FindObjectOfType<AudioManager>().Play("LeatherSlide");
 
             }
             if (GameManager.Instance.PlateT1 || GameManager.Instance.PlateT2 || GameManager.Instance.PlateT3)
             {
                 anim.Play("Dive");
+                FindObjectOfType<AudioManager>().Play("PlateDodge");
             }
 
             GameManager.Instance.isDodging = false;

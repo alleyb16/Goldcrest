@@ -50,7 +50,7 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.SpearT3 = false;
 
             GameManager.Instance.weaponDamage = 30;
-            GameManager.Instance.attackCooldown = 50;
+            GameManager.Instance.attackCooldown = 45;
             GameManager.Instance.weaponRange = 2f;
             GameManager.Instance.weaponKnockback = 10;
 
@@ -67,7 +67,7 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.SpearT3 = false;
 
             GameManager.Instance.weaponDamage = 45;
-            GameManager.Instance.attackCooldown = 65;
+            GameManager.Instance.attackCooldown = 50;
             GameManager.Instance.weaponRange = 2f;
             GameManager.Instance.weaponKnockback = 12;
         }
@@ -114,7 +114,7 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.SpearT2 = false;
             GameManager.Instance.SpearT3 = false;
 
-            GameManager.Instance.weaponDamage = 75;
+            GameManager.Instance.weaponDamage = 65;
             GameManager.Instance.attackCooldown = 45;
             GameManager.Instance.weaponRange = 1f;
             GameManager.Instance.weaponKnockback = 20;
@@ -132,7 +132,7 @@ public class CardStats : MonoBehaviour
 
             GameManager.Instance.weaponDamage = 55;
             GameManager.Instance.attackCooldown = 15;
-            GameManager.Instance.weaponRange = 3f;
+            GameManager.Instance.weaponRange = 2.5f;
             GameManager.Instance.weaponKnockback = 15;
         }
         if (GameManager.Instance.SpearT2) //Stats for Spear tier 2
@@ -148,7 +148,7 @@ public class CardStats : MonoBehaviour
 
             GameManager.Instance.weaponDamage = 65;
             GameManager.Instance.attackCooldown = 20;
-            GameManager.Instance.weaponRange = 3f;
+            GameManager.Instance.weaponRange = 2.5f;
             GameManager.Instance.weaponKnockback = 20;
         }
         if (GameManager.Instance.SpearT3) //Stats for Spear tier 3
@@ -162,9 +162,9 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.SpearT1 = false;
             GameManager.Instance.SpearT2 = false;
 
-            GameManager.Instance.weaponDamage = 70;
+            GameManager.Instance.weaponDamage = 75;
             GameManager.Instance.attackCooldown = 25;
-            GameManager.Instance.weaponRange = 3f;
+            GameManager.Instance.weaponRange = 2.5f;
             GameManager.Instance.weaponKnockback = 30;
         }
         #endregion
@@ -183,7 +183,7 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.PlateT3 = false;
 
             GameManager.Instance.playerMaxHealth = 115;
-            GameManager.Instance.moveSpeed = 6.5f;
+            GameManager.Instance.moveSpeed = 6f;
             GameManager.Instance.dodgeForce = 50*5;
         }
         if (GameManager.Instance.ClothT2) // Stats for Cloth tier 2
@@ -198,7 +198,7 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.PlateT3 = false;
 
             GameManager.Instance.playerMaxHealth = 120;
-            GameManager.Instance.moveSpeed = 7f;
+            GameManager.Instance.moveSpeed = 6.5f;
             GameManager.Instance.dodgeForce = 60*5;
         }
         if (GameManager.Instance.ClothT3) // Stats for Cloth tier 3
@@ -213,7 +213,7 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.PlateT3 = false;
 
             GameManager.Instance.playerMaxHealth = 125;
-            GameManager.Instance.moveSpeed = 7.5f;
+            GameManager.Instance.moveSpeed = 7f;
             GameManager.Instance.dodgeForce = 70*5;
         }
         if (GameManager.Instance.LeatherT1) // Stats for Leather tier 1
@@ -357,6 +357,8 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.SpearT1 = false;
             GameManager.Instance.SpearT2 = false;
             GameManager.Instance.SpearT3 = false;
+
+            FindObjectOfType<AudioManager>().Play("WeaponHit");
         }
     }
     public void activateSwordT2() // sets Sword tier 2 active
@@ -372,6 +374,9 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.SpearT1 = false;
             GameManager.Instance.SpearT2 = false;
             GameManager.Instance.SpearT3 = false;
+
+            FindObjectOfType<AudioManager>().Play("WeaponHit");
+
         }
     }
     public void activateSwordT3() // sets Sword tier 3 active
@@ -387,6 +392,9 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.SpearT1 = false;
             GameManager.Instance.SpearT2 = false;
             GameManager.Instance.SpearT3 = false;
+
+            FindObjectOfType<AudioManager>().Play("WeaponHit");
+
         }
     }
     public void activateAxeT1() // sets Axe tier 1 active
@@ -402,6 +410,9 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.SpearT1 = false;
             GameManager.Instance.SpearT2 = false;
             GameManager.Instance.SpearT3 = false;
+
+            FindObjectOfType<AudioManager>().Play("WeaponHit");
+
         }
     }
     public void activateAxeT2() // sets Axe tier 2 active
@@ -417,6 +428,9 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.SpearT1 = false;
             GameManager.Instance.SpearT2 = false;
             GameManager.Instance.SpearT3 = false;
+
+            FindObjectOfType<AudioManager>().Play("WeaponHit");
+
         }
     }
     public void activateAxeT3() // sets Axe tier 3 active
@@ -432,6 +446,9 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.SpearT1 = false;
             GameManager.Instance.SpearT2 = false;
             GameManager.Instance.SpearT3 = false;
+
+            FindObjectOfType<AudioManager>().Play("WeaponHit");
+
         }
     }
     public void activateSpearT1() // sets Spear tier 1 active
@@ -447,6 +464,9 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.SpearT1 = true;
             GameManager.Instance.SpearT2 = false;
             GameManager.Instance.SpearT3 = false;
+
+            FindObjectOfType<AudioManager>().Play("WeaponHit");
+
         }
     }
     public void activateSpearT2() // sets Spear tier 2 active
@@ -462,6 +482,9 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.SpearT1 = false;
             GameManager.Instance.SpearT2 = true;
             GameManager.Instance.SpearT3 = false;
+
+            FindObjectOfType<AudioManager>().Play("WeaponHit");
+
         }
     }
     public void activateSpearT3() // sets Spear tier 3 active
@@ -477,6 +500,9 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.SpearT1 = false;
             GameManager.Instance.SpearT2 = false;
             GameManager.Instance.SpearT3 = true;
+
+            FindObjectOfType<AudioManager>().Play("WeaponHit");
+
         }
     }
     #endregion
@@ -496,6 +522,9 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.PlateT1 = false;
             GameManager.Instance.PlateT2 = false;
             GameManager.Instance.PlateT3 = false;
+
+            FindObjectOfType<AudioManager>().Play("ClothRoll");
+
         }
     }
     public void activateClothT2() // sets cloth tier 2 active
@@ -511,6 +540,9 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.PlateT1 = false;
             GameManager.Instance.PlateT2 = false;
             GameManager.Instance.PlateT3 = false;
+
+            FindObjectOfType<AudioManager>().Play("ClothRoll");
+
         }
     }
     public void activateClothT3() // sets cloth tier 3 active
@@ -526,6 +558,9 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.PlateT1 = false;
             GameManager.Instance.PlateT2 = false;
             GameManager.Instance.PlateT3 = false;
+
+            FindObjectOfType<AudioManager>().Play("ClothRoll");
+
         }
     }
     public void activateLeatherT1() // sets leather tier 1 active
@@ -541,6 +576,9 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.PlateT1 = false;
             GameManager.Instance.PlateT2 = false;
             GameManager.Instance.PlateT3 = false;
+
+            FindObjectOfType<AudioManager>().Play("LeatherSlide");
+
         }
     }
     public void activateLeatherT2() // sets leather tier 2 active
@@ -556,6 +594,9 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.PlateT1 = false;
             GameManager.Instance.PlateT2 = false;
             GameManager.Instance.PlateT3 = false;
+
+            FindObjectOfType<AudioManager>().Play("LeatherSlide");
+
         }
     }
     public void activateLeatherT3() // sets leather tier 3 active
@@ -571,6 +612,9 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.PlateT1 = false;
             GameManager.Instance.PlateT2 = false;
             GameManager.Instance.PlateT3 = false;
+
+            FindObjectOfType<AudioManager>().Play("LeatherSlide");
+
         }
     }
     public void activatePlateT1() // sets plate tier 1 active
@@ -586,6 +630,9 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.PlateT1 = true;
             GameManager.Instance.PlateT2 = false;
             GameManager.Instance.PlateT3 = false;
+
+            FindObjectOfType<AudioManager>().Play("PlateDodge");
+
         }
     }
     public void activatePlateT2() // sets plate tier 2 active
@@ -601,6 +648,9 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.PlateT1 = false;
             GameManager.Instance.PlateT2 = true;
             GameManager.Instance.PlateT3 = false;
+
+            FindObjectOfType<AudioManager>().Play("PlateDodge");
+
         }
     }
     public void activatePlateT3() // sets plate tier 3 active
@@ -616,6 +666,9 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.PlateT1 = false;
             GameManager.Instance.PlateT2 = false;
             GameManager.Instance.PlateT3 = true;
+
+            FindObjectOfType<AudioManager>().Play("PlateDodge");
+
         }
     }
     #endregion
@@ -629,6 +682,9 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.HealingT1 = true;
             GameManager.Instance.HealingT2 = false;
             GameManager.Instance.HealingT3 = false;
+
+            FindObjectOfType<AudioManager>().Play("Potion");
+
         }
     }
     public void activateHealingT2() // sets healing tier 2 active
@@ -638,6 +694,9 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.HealingT1 = false;
             GameManager.Instance.HealingT2 = true;
             GameManager.Instance.HealingT3 = false;
+
+            FindObjectOfType<AudioManager>().Play("Potion");
+
         }
     }
     public void activateHealingT3() // sets healing tier 3 active
@@ -647,6 +706,9 @@ public class CardStats : MonoBehaviour
             GameManager.Instance.HealingT1 = false;
             GameManager.Instance.HealingT2 = false;
             GameManager.Instance.HealingT3 = true;
+
+            FindObjectOfType<AudioManager>().Play("Potion");
+
         }
     }
     #endregion

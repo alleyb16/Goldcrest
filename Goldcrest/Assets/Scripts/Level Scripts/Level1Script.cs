@@ -16,7 +16,7 @@ public class Level1Script : MonoBehaviour
     private float levelTimer = 300f;
     public int timeRemaining;
 
-    private float parScore = 500f;
+    private float parScore = 1200f;
     private float completionPercent;
 
     public bool gameOver = false;
@@ -91,6 +91,13 @@ public class Level1Script : MonoBehaviour
 
         UI.SetActive(true);
 
+        GameManager.Instance.inLevel1 = true;
+        GameManager.Instance.inLevel2 = false;
+        GameManager.Instance.inLevel3 = false;
+        GameManager.Instance.inLevel4 = false;
+        GameManager.Instance.inDemo = false;
+
+        GameManager.Instance.bossDead = false;
     }
 
     // Update is called once per frame
@@ -118,7 +125,7 @@ public class Level1Script : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            if(GameManager.Instance.coinsCollected > 20) // If player meets completion requirements...
+            if(GameManager.Instance.bossDead) // If player meets completion requirements...
             {
                 GameManager.Instance.currentScore += timeRemaining; // Add time remaining to score
                 if (GameManager.Instance.currentScore > GameManager.Instance.level1Score)
@@ -134,6 +141,7 @@ public class Level1Script : MonoBehaviour
                 percentComplete(); //Determine percentage complete w/ par score
                 levelEnd = true; // Disable the timer
                 UI.SetActive(false);// disable main ui
+                GameManager.Instance.bossDead = false;
                 summary.SetActive(true); // Set level over and display summary
                 awardCard();
                 GameManager.Instance.lvl2Unlocked = true;
@@ -142,6 +150,7 @@ public class Level1Script : MonoBehaviour
                 GameManager.Instance.hasKey = false;
                 GameManager.Instance.depositCoins(); // Store collected coins
 
+
             }
         }
     }
@@ -149,7 +158,7 @@ public class Level1Script : MonoBehaviour
     // calculates the percentage for the level
     private void percentComplete()
     {
-        completionPercent = GameManager.Instance.currentScore / parScore * 100;
+        completionPercent = GameManager.Instance.currentScore / parScore * 100f;
     }
 
     // Calculates performance for summary menu
@@ -157,7 +166,7 @@ public class Level1Script : MonoBehaviour
     {
         YourScoreValue.text = GameManager.Instance.currentScore.ToString();
         GoldCollectedValue.text = GameManager.Instance.coinsCollected.ToString();
-        Rating.text = completionPercent.ToString() + "%";
+        Rating.text = Mathf.Floor(completionPercent).ToString() + "%";
 
         // if player rating < 50
         // Display all gray stars
@@ -205,7 +214,7 @@ public class Level1Script : MonoBehaviour
 
     public void restartLevel()
     {
-        SceneManager.LoadScene("Scenes/Demo", LoadSceneMode.Single);
+        SceneManager.LoadScene("Scenes/Level-1", LoadSceneMode.Single);
     }
 
     public void failLevel()

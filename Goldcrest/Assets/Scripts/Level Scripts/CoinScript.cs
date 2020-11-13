@@ -22,6 +22,8 @@ public class CoinScript : MonoBehaviour
             GameManager.Instance.coinsCollected += 1;//Add value
             GameManager.Instance.currentScore += 10;// Adds score
 
+            FindObjectOfType<AudioManager>().Play("CoinPickup");
+
             Destroy(gameObject); // Destroys coin
         }
     }

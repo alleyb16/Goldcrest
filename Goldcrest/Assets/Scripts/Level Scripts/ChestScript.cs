@@ -36,6 +36,8 @@ public class ChestScript : MonoBehaviour
 
     void Open()
     {
+        FindObjectOfType<AudioManager>().Play("ChestOpen"); // Play attack sound
+
         closedChest.SetActive(false);
         openChest.SetActive(true);
     }

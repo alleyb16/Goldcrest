@@ -19,6 +19,15 @@ public class Traps : MonoBehaviour
         if (col.CompareTag("Player") && playerCombat.invuln == false)
         {            
                 GameManager.Instance.playerHealth -= 20;
+
+            if (gameObject.tag == "Fire")
+            {
+                FindObjectOfType<AudioManager>().Play("Burning");
+            }
+            if (gameObject.tag == "Spike")
+            {
+                FindObjectOfType<AudioManager>().Play("PlayerShot");
+            }
             
             // KNOCKBACK ON PLAYER (DOESN'T WORK RN)
             //hitDirection = player.transform.position - transform.position; // Calculates angle between player and enemy

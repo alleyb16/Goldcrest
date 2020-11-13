@@ -28,8 +28,16 @@ public class PlayerData {
 
     public int level1Score;
     public float lvl1Rating;
+    public int level2Score;
+    public float lvl2Rating;
+    public int level3Score;
+    public float lvl3Rating;
+    public int level4Score;
+    public float lvl4Rating;
 
     public bool lvl2Unlocked;
+    public bool lvl3Unlocked;
+    public bool lvl4Unlocked;
     #endregion
     // Card data
     #region
@@ -172,6 +180,12 @@ public class PlayerData {
 
         level1Score = gm.level1Score;
         lvl1Rating = gm.lvl1Rating;
+
+        level2Score = gm.level2Score;
+        lvl2Rating = gm.lvl2Rating;
+
+        level3Score = gm.level3Score;
+        lvl3Rating = gm.lvl3Rating;
         #endregion
 
         // Card data

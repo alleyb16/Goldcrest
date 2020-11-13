@@ -33,14 +33,9 @@ public class DoorScript : MonoBehaviour
 
     void Die()
     {
-        // Die animation
-
-        // Disable Enemy
-
-        print("Enemy Defeated");
-        //GameManager.Instance.currentScore += 15;
         GetComponent<BoxCollider>().enabled = false;
-        //this.enabled = false;
+        FindObjectOfType<AudioManager>().Play("ObstacleDestroyed"); // Play attack sound
+
         Destroy(gameObject, 1);
     }
 }

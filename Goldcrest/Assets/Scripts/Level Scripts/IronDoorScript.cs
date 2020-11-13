@@ -15,7 +15,7 @@ public class IronDoorScript : MonoBehaviour
                 GameManager.Instance.hasKey = false;
 
                 // Play unlock sound
-
+                FindObjectOfType<AudioManager>().Play("DoorUnlock");
             }
         }
     }

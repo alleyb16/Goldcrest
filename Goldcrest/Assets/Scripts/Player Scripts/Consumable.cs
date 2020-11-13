@@ -57,6 +57,7 @@ public class Consumable : MonoBehaviour
             cooldownTimer = GameManager.Instance.consumableCooldown;
             consumableReady = false;
             drinkTimer = drinkTime;
+            FindObjectOfType<AudioManager>().Play("Potion");
             }
     }
 

@@ -218,11 +218,12 @@ public class PlayerController : MonoBehaviour
 
     public void attack()
     {
-        if (!GameManager.Instance.isDrinking && !GameManager.Instance.isStunned && !GameManager.Instance.isDead)
+        if (!GameManager.Instance.isDrinking && !GameManager.Instance.isStunned && !GameManager.Instance.isDead && !GameManager.Instance.isAttacking)
         {
             //attack
             if (playercombat.attackReady)
             {
+                playercombat.attackReady = false;
                 GameManager.Instance.isAttacking = true;
                 playercombat.cooldownTimer = playercombat.attackCooldown;
                 Invoke(nameof(getAttack), .4f);
@@ -276,6 +277,7 @@ public class PlayerController : MonoBehaviour
 
     private void getAttack()
     {
+        playercombat.attackReady = true;
         playercombat.Attack();
     }
 }

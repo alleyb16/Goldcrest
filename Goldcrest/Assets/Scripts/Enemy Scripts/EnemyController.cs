@@ -40,6 +40,8 @@ public class EnemyController : MonoBehaviour
     private Animator anim;
     public BasicEnemy enemy;
 
+    private int randomNum;
+
 
     //New Stuff Awake
     private void Awake()
@@ -109,6 +111,7 @@ public class EnemyController : MonoBehaviour
     //New Stuff Chase Player
     private void ChasePlayer()
     {
+        if (!enemy.isDead)
         agent.SetDestination(player.position);
     }
 
@@ -122,7 +125,42 @@ public class EnemyController : MonoBehaviour
 
         if (!alreadyAttacked)
         {
-            anim.Play("attack"); // Plays the enemy attack animation
+            if (gameObject.tag == "Enemy") // Standard enemy attacks
+            {
+                randomNum = Random.Range(0, 2); // Picks a random number to play a random attack animation
+
+                if (randomNum == 0)
+                {
+                    anim.Play("attack"); // Plays the enemy attack animation
+                }
+                if (randomNum == 1)
+                {
+                    anim.Play("attack 2");
+                }
+                FindObjectOfType<AudioManager>().Play("ShadeAttack");
+            }
+            if (gameObject.tag == "Ranger") // ranger attacks
+            {
+                anim.Play("ranged attack");
+                FindObjectOfType<AudioManager>().Play("BowDraw");
+            }
+            if (gameObject.tag == "Mini Boss") // Boss attacks
+            {
+                randomNum = Random.Range(0, 3); // Picks a random number to play a random attack animation
+
+                if (randomNum == 0)
+                {
+                    anim.Play("attack");
+                }
+                if (randomNum == 1)
+                {
+                    anim.Play("attack 2");
+                }
+                if (randomNum == 2)
+                {
+                    anim.Play("pound");
+                }
+            }
             Invoke(nameof(fire), 1.25f); // queues the attack projectile
 
             alreadyAttacked = true; // sets the attacked state to true
@@ -131,11 +169,16 @@ public class EnemyController : MonoBehaviour
     }
     private void fire() // Fires the projectile
     {
-        if (enemy.isDead == false) // This doesn't prevent the projectile from firing beyond the grave... Why?
+        if (enemy.isDead == false)
         {
             Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * projectileSpeed, ForceMode.Impulse);
             rb.AddForce(transform.up * 5f, ForceMode.Impulse);
+
+            if (gameObject.tag == "Ranger")
+            {
+                FindObjectOfType<AudioManager>().Play("BowFire");
+            }
         }
     }
     //New Stuff Reset Attack

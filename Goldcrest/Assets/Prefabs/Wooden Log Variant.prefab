@@ -70,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 64294127860275684, guid: e4d35fc487ff62e45b34ae45f80c88fc,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4d35fc487ff62e45b34ae45f80c88fc, type: 3}
@@ -97,6 +97,10 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 1.37
       objectReference: {fileID: 0}
+    - target: {fileID: 1930777349, guid: 43b88aa2ef4ef67449de113ddee1c823, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.52
+      objectReference: {fileID: 0}
     - target: {fileID: 9044015613872672390, guid: 43b88aa2ef4ef67449de113ddee1c823,
         type: 3}
       propertyPath: m_IsActive
@@ -105,12 +109,17 @@ PrefabInstance:
     - target: {fileID: 9158220125723762604, guid: 43b88aa2ef4ef67449de113ddee1c823,
         type: 3}
       propertyPath: m_Name
-      value: Wooden Log
+      value: Wooden Log Variant
       objectReference: {fileID: 0}
     - target: {fileID: 9158220125723762604, guid: 43b88aa2ef4ef67449de113ddee1c823,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9158220125723762604, guid: 43b88aa2ef4ef67449de113ddee1c823,
+        type: 3}
+      propertyPath: m_TagString
+      value: Log
       objectReference: {fileID: 0}
     - target: {fileID: 9158220125724140824, guid: 43b88aa2ef4ef67449de113ddee1c823,
         type: 3}
