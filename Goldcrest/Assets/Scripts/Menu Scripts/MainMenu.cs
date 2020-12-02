@@ -39,13 +39,13 @@ public class MainMenu : MonoBehaviour
     }
     public void PlayGame()
     {
-        SceneManager.LoadScene("Scenes/Demo", LoadSceneMode.Single); // Load first level
+        SceneManager.LoadScene("Scenes/Level-1", LoadSceneMode.Single); // Load first level
     }
     public void startLevel2()
     {
         if (GameManager.Instance.lvl2Unlocked)
         {
-            SceneManager.LoadScene("Scenes/Level-1", LoadSceneMode.Single); // Load second level
+            SceneManager.LoadScene("Scenes/Level-2", LoadSceneMode.Single); // Load second level
         }
     }
 
