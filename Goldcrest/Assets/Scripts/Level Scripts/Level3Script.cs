@@ -133,7 +133,7 @@ public class Level3Script : MonoBehaviour
                 if (GameManager.Instance.level3Completed == false)
                 {
                     GameManager.Instance.levelsCompleted++;
-                    GameManager.Instance.level2Completed = true;
+                    GameManager.Instance.level3Completed = true;
                 }
             }
             percentComplete(); //Determine percentage complete w/ par score

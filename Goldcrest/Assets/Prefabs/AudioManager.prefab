@@ -202,3 +202,9 @@ MonoBehaviour:
     pitch: 1.26
     loop: 0
     source: {fileID: 0}
+  - name: KeyPickup
+    clip: {fileID: 8300000, guid: a34c6905255a48246ae8e0db49fdbe29, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

@@ -8,11 +8,14 @@ public class DisplayUI : MonoBehaviour
     public Level1Script LVL1;
     public Level2Script LVL2;
     public Level3Script LVL3;
+    public Level4Script LvL4;
     public DemoLevelScript demo;
 
     public Text goldText;
     public Text timerText;
     public Text scoreText;
+
+    public Image key;
 
     private float healthPercent;
     Image healthbar;
@@ -30,6 +33,15 @@ public class DisplayUI : MonoBehaviour
         updateHealth();
         print(GameManager.Instance.currentScore);
         print(GameManager.Instance.playerHealth);
+
+        if (GameManager.Instance.hasKey)
+        {
+            key.enabled = true;
+        }
+        else
+        {
+            key.enabled = false;
+        }
     }
 
     void updateScores()
@@ -52,6 +64,10 @@ public class DisplayUI : MonoBehaviour
         if (GameManager.Instance.inLevel3)
         {
             timerText.text = LVL3.timeRemaining.ToString();
+        }
+        if (GameManager.Instance.inLevel4)
+        {
+            timerText.text = LvL4.timeRemaining.ToString();
         }
     }
 

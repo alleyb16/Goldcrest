@@ -12,6 +12,7 @@ public class Loadout : MonoBehaviour
     public Text KnockbackScore;
     public Text AttackSpeedScore;
     public Text AgilityScore;
+    public Text DamageScore;
 
     public Button offensiveImage;
     public Button defensiveImage;
@@ -119,6 +120,7 @@ public class Loadout : MonoBehaviour
         KnockbackScore.text = GameManager.Instance.weaponKnockback.ToString();
         AttackSpeedScore.text = GameManager.Instance.attackCooldown.ToString();
         AgilityScore.text = (GameManager.Instance.dodgeForce / 5).ToString();
+        DamageScore.text = GameManager.Instance.weaponDamage.ToString();
     }
 
     // Edits the card image to display currently equipped cards

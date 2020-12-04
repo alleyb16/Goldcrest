@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ChestScript : MonoBehaviour
 {
 
-    private float maxChestHealth = 75f;
+    private float maxChestHealth = 1f;
     private float currentChestHealth;
 
     public Image chestHealthbar;

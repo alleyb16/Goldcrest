@@ -21,7 +21,7 @@ public class EnemyHealthbar : MonoBehaviour
     void RotateHealthbar()
     {
         Vector3 v = cameraToLookAt.transform.position - transform.position;
-        v.x = v.z = 0.0f;
+        v.x = v.z = v.y = 0.0f;
         transform.LookAt(cameraToLookAt.transform.position - v);
         transform.Rotate(0, 180, 0);
     }

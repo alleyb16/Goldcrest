@@ -264,7 +264,7 @@ public class GameManager : MonoBehaviour
 
     public void level4Rating()
     {
-        lvl4Rating = level4Score / 500f * 100f;
+        lvl4Rating = level4Score / 1500f * 100f;
     }
     
 

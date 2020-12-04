@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public Inventory inventory;
+    public GearSwap gearSwap;
 
     public Text goldCount;
     public Text starCount;
@@ -40,6 +41,10 @@ public class MainMenu : MonoBehaviour
     public Image lvl4Star1;
     public Image lvl4Star2;
     public Image lvl4Star3;
+
+    public Image lvl2Lock;
+    public Image lvl3Lock;
+    public Image lvl4Lock;
 
 
     private void Awake()
@@ -77,6 +82,9 @@ public class MainMenu : MonoBehaviour
         GameManager.Instance.inLevel3 = false;
         GameManager.Instance.inLevel4 = false;
         GameManager.Instance.inDemo = false;
+
+        //equip gear
+        gearSwap.updateMenuCharacter();
     }
 
     public void startLevel0()
@@ -99,6 +107,13 @@ public class MainMenu : MonoBehaviour
         if (GameManager.Instance.lvl3Unlocked)
         {
             SceneManager.LoadScene("Scenes/Level-3", LoadSceneMode.Single);
+        }
+    }
+    public void startLevel4()
+    {
+        if (GameManager.Instance.lvl4Unlocked)
+        {
+            SceneManager.LoadScene("Scenes/Level-4", LoadSceneMode.Single);
         }
     }
     
@@ -179,7 +194,10 @@ public class MainMenu : MonoBehaviour
         level2Score.text = GameManager.Instance.level2Score.ToString(); // Displays high score on level menu
         GameManager.Instance.level2Rating();
 
-
+        if (GameManager.Instance.lvl2Unlocked)
+        {
+            lvl2Lock.enabled = false;
+        }
 
         if (GameManager.Instance.lvl2Rating < 50f) // Displays star rating
         {
@@ -207,7 +225,10 @@ public class MainMenu : MonoBehaviour
         level3Score.text = GameManager.Instance.level3Score.ToString(); // Displays high score on level menu
         GameManager.Instance.level3Rating();
 
-
+        if (GameManager.Instance.lvl3Unlocked)
+        {
+            lvl3Lock.enabled = false;
+        }
 
         if (GameManager.Instance.lvl3Rating < 50f) // Displays star rating
         {
@@ -235,7 +256,10 @@ public class MainMenu : MonoBehaviour
         level4Score.text = GameManager.Instance.level4Score.ToString(); // Displays high score on level menu
         GameManager.Instance.level4Rating();
 
-
+        if (GameManager.Instance.lvl4Unlocked)
+        {
+            lvl4Lock.enabled = false;
+        }
 
         if (GameManager.Instance.lvl4Rating < 50f) // Displays star rating
         {
@@ -282,4 +306,6 @@ public class MainMenu : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Play("ButtonPress");
     }
+
+  
 }

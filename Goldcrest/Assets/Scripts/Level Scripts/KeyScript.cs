@@ -19,6 +19,8 @@ public class KeyScript : MonoBehaviour
         {
             GameManager.Instance.hasKey = true;// Set the has key state active
 
+            FindObjectOfType<AudioManager>().Play("KeyPickup");
+
             Destroy(gameObject); // Destroys key
         }
     }

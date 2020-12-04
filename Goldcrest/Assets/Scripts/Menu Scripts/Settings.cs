@@ -22,4 +22,8 @@ public class Settings : MonoBehaviour
         audioMixer.SetFloat("effectsVolume", volume);
     }
 
+    public void SetQuality(int qualityIndex)
+    {
+        QualitySettings.SetQualityLevel(qualityIndex);
+    }
 }

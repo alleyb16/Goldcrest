@@ -74,5 +74,6 @@ public class DevMode : MonoBehaviour
         // Unlock all levels
         GameManager.Instance.lvl2Unlocked = true;
         GameManager.Instance.lvl3Unlocked = true;
+        GameManager.Instance.lvl4Unlocked = true;
     }
 }

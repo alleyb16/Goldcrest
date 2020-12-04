@@ -24,10 +24,30 @@ public class GearSwap : MonoBehaviour
     public GameObject plateT2;
     public GameObject plateT3;
 
+    public GameObject menuSwordT1;
+    public GameObject menuSwordT2;
+    public GameObject menuSwordT3;
+    public GameObject menuAxeT1;
+    public GameObject menuAxeT2;
+    public GameObject menuAxeT3;
+    public GameObject menuSpearT1;
+    public GameObject menuSpearT2;
+    public GameObject menuSpearT3;
+
+    public GameObject menuClothT1;
+    public GameObject menuClothT2;
+    public GameObject menuClothT3;
+    public GameObject menuLeatherT1;
+    public GameObject menuLeatherT2;
+    public GameObject menuLeatherT3;
+    public GameObject menuPlateT1;
+    public GameObject menuPlateT2;
+    public GameObject menuPlateT3;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        equipGear();
     }
 
     // Update is called once per frame
@@ -49,6 +69,7 @@ public class GearSwap : MonoBehaviour
             spearT1.SetActive(false);
             spearT2.SetActive(false);
             spearT3.SetActive(false);
+
         }
         if (GameManager.Instance.SwordT2)
         {
@@ -72,7 +93,7 @@ public class GearSwap : MonoBehaviour
             axeT3.SetActive(false);
             spearT1.SetActive(false);
             spearT2.SetActive(false);
-            spearT3.SetActive(false);
+            spearT3.SetActive(false);            
         }
         if (GameManager.Instance.AxeT1)
         {
@@ -85,6 +106,7 @@ public class GearSwap : MonoBehaviour
             spearT1.SetActive(false);
             spearT2.SetActive(false);
             spearT3.SetActive(false);
+           
         }
         if (GameManager.Instance.AxeT2)
         {
@@ -96,7 +118,7 @@ public class GearSwap : MonoBehaviour
             axeT3.SetActive(false);
             spearT1.SetActive(false);
             spearT2.SetActive(false);
-            spearT3.SetActive(false);
+            spearT3.SetActive(false);           
         }
         if (GameManager.Instance.AxeT3)
         {
@@ -108,7 +130,7 @@ public class GearSwap : MonoBehaviour
             axeT3.SetActive(true);
             spearT1.SetActive(false);
             spearT2.SetActive(false);
-            spearT3.SetActive(false);
+            spearT3.SetActive(false);            
         }
         if (GameManager.Instance.SpearT1)
         {
@@ -120,7 +142,7 @@ public class GearSwap : MonoBehaviour
             axeT3.SetActive(false);
             spearT1.SetActive(true);
             spearT2.SetActive(false);
-            spearT3.SetActive(false);
+            spearT3.SetActive(false);           
         }
         if (GameManager.Instance.SpearT2)
         {
@@ -133,6 +155,7 @@ public class GearSwap : MonoBehaviour
             spearT1.SetActive(false);
             spearT2.SetActive(true);
             spearT3.SetActive(false);
+            
         }
         if (GameManager.Instance.SpearT3)
         {
@@ -144,7 +167,7 @@ public class GearSwap : MonoBehaviour
             axeT3.SetActive(false);
             spearT1.SetActive(false);
             spearT2.SetActive(false);
-            spearT3.SetActive(true);
+            spearT3.SetActive(true);            
         }
 
         if (GameManager.Instance.ClothT1) // ARMOR
@@ -157,7 +180,7 @@ public class GearSwap : MonoBehaviour
             leatherT3.SetActive(false);
             plateT1.SetActive(false);
             plateT2.SetActive(false);
-            plateT3.SetActive(false);
+            plateT3.SetActive(false);            
         }
         if (GameManager.Instance.ClothT2)
         {
@@ -193,7 +216,7 @@ public class GearSwap : MonoBehaviour
             leatherT3.SetActive(false);
             plateT1.SetActive(false);
             plateT2.SetActive(false);
-            plateT3.SetActive(false);
+            plateT3.SetActive(false);            
         }
         if (GameManager.Instance.LeatherT2)
         {
@@ -254,6 +277,242 @@ public class GearSwap : MonoBehaviour
             plateT1.SetActive(false);
             plateT2.SetActive(false);
             plateT3.SetActive(true);
+        }
+    }
+
+    public void updateMenuCharacter()
+    {
+        if (GameManager.Instance.SwordT1) // WEAPONS
+        {
+            menuSwordT1.SetActive(true);
+            menuSwordT2.SetActive(false);
+            menuSwordT3.SetActive(false);
+            menuAxeT1.SetActive(false);
+            menuAxeT2.SetActive(false);
+            menuAxeT3.SetActive(false);
+            menuSpearT1.SetActive(false);
+            menuSpearT2.SetActive(false);
+            menuSpearT3.SetActive(false);
+        }
+        if (GameManager.Instance.SwordT2)
+        {
+            menuSwordT1.SetActive(false);
+            menuSwordT2.SetActive(true);
+            menuSwordT3.SetActive(false);
+            menuAxeT1.SetActive(false);
+            menuAxeT2.SetActive(false);
+            menuAxeT3.SetActive(false);
+            menuSpearT1.SetActive(false);
+            menuSpearT2.SetActive(false);
+            menuSpearT3.SetActive(false);
+        }
+        if (GameManager.Instance.SwordT3)
+        {
+            menuSwordT1.SetActive(false);
+            menuSwordT2.SetActive(false);
+            menuSwordT3.SetActive(true);
+            menuAxeT1.SetActive(false);
+            menuAxeT2.SetActive(false);
+            menuAxeT3.SetActive(false);
+            menuSpearT1.SetActive(false);
+            menuSpearT2.SetActive(false);
+            menuSpearT3.SetActive(false);
+
+        }
+        if (GameManager.Instance.AxeT1)
+        {
+            menuSwordT1.SetActive(false);
+            menuSwordT2.SetActive(false);
+            menuSwordT3.SetActive(false);
+            menuAxeT1.SetActive(true);
+            menuAxeT2.SetActive(false);
+            menuAxeT3.SetActive(false);
+            menuSpearT1.SetActive(false);
+            menuSpearT2.SetActive(false);
+            menuSpearT3.SetActive(false);
+
+        }
+        if (GameManager.Instance.AxeT2)
+        {
+            menuSwordT1.SetActive(false);
+            menuSwordT2.SetActive(false);
+            menuSwordT3.SetActive(false);
+            menuAxeT1.SetActive(false);
+            menuAxeT2.SetActive(true);
+            menuAxeT3.SetActive(false);
+            menuSpearT1.SetActive(false);
+            menuSpearT2.SetActive(false);
+            menuSpearT3.SetActive(false);
+
+        }
+        if (GameManager.Instance.AxeT3)
+        {
+            menuSwordT1.SetActive(false);
+            menuSwordT2.SetActive(false);
+            menuSwordT3.SetActive(false);
+            menuAxeT1.SetActive(false);
+            menuAxeT2.SetActive(false);
+            menuAxeT3.SetActive(true);
+            menuSpearT1.SetActive(false);
+            menuSpearT2.SetActive(false);
+            menuSpearT3.SetActive(false);
+
+        }
+        if (GameManager.Instance.SpearT1)
+        {
+            menuSwordT1.SetActive(false);
+            menuSwordT2.SetActive(false);
+            menuSwordT3.SetActive(false);
+            menuAxeT1.SetActive(false);
+            menuAxeT2.SetActive(false);
+            menuAxeT3.SetActive(false);
+            menuSpearT1.SetActive(true);
+            menuSpearT2.SetActive(false);
+            menuSpearT3.SetActive(false);
+
+        }
+        if (GameManager.Instance.SpearT2)
+        {
+            menuSwordT1.SetActive(false);
+            menuSwordT2.SetActive(false);
+            menuSwordT3.SetActive(false);
+            menuAxeT1.SetActive(false);
+            menuAxeT2.SetActive(false);
+            menuAxeT3.SetActive(false);
+            menuSpearT1.SetActive(false);
+            menuSpearT2.SetActive(true);
+            menuSpearT3.SetActive(false);
+
+        }
+        if (GameManager.Instance.SpearT3)
+        {
+            menuSwordT1.SetActive(false);
+            menuSwordT2.SetActive(false);
+            menuSwordT3.SetActive(false);
+            menuAxeT1.SetActive(false);
+            menuAxeT2.SetActive(false);
+            menuAxeT3.SetActive(false);
+            menuSpearT1.SetActive(false);
+            menuSpearT2.SetActive(false);
+            menuSpearT3.SetActive(true);
+
+        }
+
+        if (GameManager.Instance.ClothT1) // ARMOR
+        {
+            menuClothT1.SetActive(true);
+            menuClothT2.SetActive(false);
+            menuClothT3.SetActive(false);
+            menuLeatherT1.SetActive(false);
+            menuLeatherT2.SetActive(false);
+            menuLeatherT3.SetActive(false);
+            menuPlateT1.SetActive(false);
+            menuPlateT2.SetActive(false);
+            menuPlateT3.SetActive(false);
+
+        }
+        if (GameManager.Instance.ClothT2)
+        {
+            menuClothT1.SetActive(false);
+            menuClothT2.SetActive(true);
+            menuClothT3.SetActive(false);
+            menuLeatherT1.SetActive(false);
+            menuLeatherT2.SetActive(false);
+            menuLeatherT3.SetActive(false);
+            menuPlateT1.SetActive(false);
+            menuPlateT2.SetActive(false);
+            menuPlateT3.SetActive(false);
+
+        }
+        if (GameManager.Instance.ClothT3)
+        {
+            menuClothT1.SetActive(false);
+            menuClothT2.SetActive(false);
+            menuClothT3.SetActive(true);
+            menuLeatherT1.SetActive(false);
+            menuLeatherT2.SetActive(false);
+            menuLeatherT3.SetActive(false);
+            menuPlateT1.SetActive(false);
+            menuPlateT2.SetActive(false);
+            menuPlateT3.SetActive(false);
+
+        }
+        if (GameManager.Instance.LeatherT1)
+        {
+            menuClothT1.SetActive(false);
+            menuClothT2.SetActive(false);
+            menuClothT3.SetActive(false);
+            menuLeatherT1.SetActive(true);
+            menuLeatherT2.SetActive(false);
+            menuLeatherT3.SetActive(false);
+            menuPlateT1.SetActive(false);
+            menuPlateT2.SetActive(false);
+            menuPlateT3.SetActive(false);
+
+        }
+        if (GameManager.Instance.LeatherT2)
+        {
+            menuClothT1.SetActive(false);
+            menuClothT2.SetActive(false);
+            menuClothT3.SetActive(false);
+            menuLeatherT1.SetActive(false);
+            menuLeatherT2.SetActive(true);
+            menuLeatherT3.SetActive(false);
+            menuPlateT1.SetActive(false);
+            menuPlateT2.SetActive(false);
+            menuPlateT3.SetActive(false);
+
+        }
+        if (GameManager.Instance.LeatherT3)
+        {
+            menuClothT1.SetActive(false);
+            menuClothT2.SetActive(false);
+            menuClothT3.SetActive(false);
+            menuLeatherT1.SetActive(false);
+            menuLeatherT2.SetActive(false);
+            menuLeatherT3.SetActive(true);
+            menuPlateT1.SetActive(false);
+            menuPlateT2.SetActive(false);
+            menuPlateT3.SetActive(false);
+
+        }
+        if (GameManager.Instance.PlateT1)
+        {
+            menuClothT1.SetActive(false);
+            menuClothT2.SetActive(false);
+            menuClothT3.SetActive(false);
+            menuLeatherT1.SetActive(false);
+            menuLeatherT2.SetActive(false);
+            menuLeatherT3.SetActive(false);
+            menuPlateT1.SetActive(true);
+            menuPlateT2.SetActive(false);
+            menuPlateT3.SetActive(false);
+
+        }
+        if (GameManager.Instance.PlateT2)
+        {
+            menuClothT1.SetActive(false);
+            menuClothT2.SetActive(false);
+            menuClothT3.SetActive(false);
+            menuLeatherT1.SetActive(false);
+            menuLeatherT2.SetActive(false);
+            menuLeatherT3.SetActive(false);
+            menuPlateT1.SetActive(false);
+            menuPlateT2.SetActive(true);
+            menuPlateT3.SetActive(false);
+
+        }
+        if (GameManager.Instance.PlateT3)
+        {
+            menuClothT1.SetActive(false);
+            menuClothT2.SetActive(false);
+            menuClothT3.SetActive(false);
+            menuLeatherT1.SetActive(false);
+            menuLeatherT2.SetActive(false);
+            menuLeatherT3.SetActive(false);
+            menuPlateT1.SetActive(false);
+            menuPlateT2.SetActive(false);
+            menuPlateT3.SetActive(true);
         }
     }
 }
