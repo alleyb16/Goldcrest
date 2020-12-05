@@ -7,7 +7,7 @@ public class OutOfBounds : MonoBehaviour
     public Level1Script level1Script;
     public Level2Script level2Script;
     public Level3Script level3Script;
-    //public Level4Script level4Script;
+    public Level4Script level4Script;
     public DemoLevelScript demo;
 
     // Start is called before the first frame update
@@ -42,6 +42,12 @@ public class OutOfBounds : MonoBehaviour
                 level3Script.gameOver = true;
                 level3Script.UI.SetActive(false);
                 level3Script.levelFail.SetActive(true);
+            }
+            if (GameManager.Instance.inLevel4)
+            {
+                level4Script.gameOver = true;
+                level4Script.UI.SetActive(false);
+                level4Script.levelFail.SetActive(true);
             }
             if (GameManager.Instance.inDemo)
             {

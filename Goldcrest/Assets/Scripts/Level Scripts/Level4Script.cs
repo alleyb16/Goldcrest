@@ -96,9 +96,9 @@ public class Level4Script : MonoBehaviour
         GameManager.Instance.inLevel3 = false;
         GameManager.Instance.inLevel4 = true;
         GameManager.Instance.inDemo = false;
-
-        GameManager.Instance.bossDead = false;
     }
+    public BossController boss;
+
 
     // Update is called once per frame
     void Update()
@@ -118,6 +118,12 @@ public class Level4Script : MonoBehaviour
         {
             GameManager.Instance.isDead = true;
             Invoke(nameof(failLevel), 5f);
+        }
+
+        if (boss.endGame && !gameOver)
+        {
+            EndGame();
+            gameOver = true;
         }
     }
 
@@ -148,6 +154,32 @@ public class Level4Script : MonoBehaviour
             GameManager.Instance.depositCoins(); // Store collected coins
 
         }
+    }
+
+    public void EndGame()
+    {
+        GameManager.Instance.currentScore += timeRemaining; // Add time remaining to score
+        if (GameManager.Instance.currentScore > GameManager.Instance.level4Score)
+        {
+            GameManager.Instance.level4Score = GameManager.Instance.currentScore; // Store score for level and keep highest score
+
+            if (GameManager.Instance.level4Completed == false)
+            {
+                GameManager.Instance.levelsCompleted++;
+                GameManager.Instance.level4Completed = true;
+            }
+        }
+        percentComplete(); //Determine percentage complete w/ par score
+        levelEnd = true; // Disable the timer
+        UI.SetActive(false);// disable main ui
+        GameManager.Instance.bossDead = false;
+        summary.SetActive(true); // Set level over and display summary
+        awardCard();
+        calculatePerformance(); // Calculates player performance and displays it to player
+        Time.timeScale = 0f; //Slows speed to a pause
+        GameManager.Instance.hasKey = false;
+        GameManager.Instance.depositCoins(); // Store collected coins
+
     }
 
     // calculates the percentage for the level

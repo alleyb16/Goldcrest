@@ -7,7 +7,7 @@ public class BasicEnemy : MonoBehaviour
 {
     private Animator anim;
     public float maxHealth = 75f;
-    private float currentHealth;
+    public float currentHealth;
 
     public Image enemyHealthbar;
     private float healthPercent;

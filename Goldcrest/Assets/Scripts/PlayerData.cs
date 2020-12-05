@@ -186,6 +186,9 @@ public class PlayerData {
 
         level3Score = gm.level3Score;
         lvl3Rating = gm.lvl3Rating;
+
+        level4Score = gm.level4Score;
+        lvl4Rating = gm.lvl4Rating;
         #endregion
 
         // Card data
