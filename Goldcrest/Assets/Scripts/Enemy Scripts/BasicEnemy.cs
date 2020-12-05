@@ -7,7 +7,7 @@ public class BasicEnemy : MonoBehaviour
 {
     private Animator anim;
     public float maxHealth = 75f;
-    private float currentHealth;
+    public float currentHealth;
 
     public Image enemyHealthbar;
     private float healthPercent;
@@ -60,11 +60,12 @@ public class BasicEnemy : MonoBehaviour
 
     void Die()
     {
+        
         // Die animation
         anim.SetBool("die", true);
         anim.SetBool("atk", false);
         anim.SetBool("run", false);
-
+        
         isDead = true;
         //anim.Play("die");
         // Disable Enemy
@@ -91,6 +92,7 @@ public class BasicEnemy : MonoBehaviour
             GameManager.Instance.currentScore += 1;
             FindObjectOfType<AudioManager>().Play("RatDeath");
         }
+        print("Ima die");
         GetComponent<CapsuleCollider>().enabled = false;
         //this.enabled = false;
         Destroy(gameObject, 1);
