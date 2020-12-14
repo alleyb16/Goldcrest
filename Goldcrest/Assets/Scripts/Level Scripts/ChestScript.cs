@@ -14,6 +14,8 @@ public class ChestScript : MonoBehaviour
     public GameObject closedChest;
     public GameObject openChest;
 
+    private bool isOpen = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -36,9 +38,13 @@ public class ChestScript : MonoBehaviour
 
     void Open()
     {
-        FindObjectOfType<AudioManager>().Play("ChestOpen"); // Play attack sound
+        if (!isOpen)
+        {
+            FindObjectOfType<AudioManager>().Play("ChestOpen"); // Play attack sound
 
-        closedChest.SetActive(false);
-        openChest.SetActive(true);
+            closedChest.SetActive(false);
+            openChest.SetActive(true);
+            isOpen = true;
+        }
     }
 }

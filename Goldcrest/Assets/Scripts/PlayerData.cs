@@ -169,6 +169,10 @@ public class PlayerData {
         level3Completed = gm.level3Completed;
         level4Completed = gm.level4Completed;
 
+        lvl2Unlocked = gm.lvl2Unlocked;
+        lvl3Unlocked = gm.lvl3Unlocked;
+        lvl4Unlocked = gm.lvl4Unlocked;
+
         lvl1Stars = gm.lvl1Stars;
         lvl2Stars = gm.lvl2Stars;
         lvl3Stars = gm.lvl3Stars;

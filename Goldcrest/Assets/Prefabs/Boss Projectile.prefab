@@ -124,5 +124,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletDamage: 50
-  bulletLifespan: 0.3
+  bulletLifespan: 0.2
   target: {fileID: 0}
